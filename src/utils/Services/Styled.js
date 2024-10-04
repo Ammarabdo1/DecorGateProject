@@ -61,8 +61,9 @@ export const HeaderText = styled.header`
   align-items: center;
 
   .main-text {
+    transition: background-color 0.5s ease, color 0.5s ease;
     font-size: 5rem;
-    ${props => !props.checkSaudiFlag && 'font-size: 4rem;'}
+    ${(props) => !props.checkSaudiFlag && "font-size: 4rem;"}
     color: ${(props) => (props.checkDarkMode ? "#eece95" : "#003641")};
     font-family: "Open Sans", Tahoma, Arial, Helvetica;
     text-align: center;
@@ -77,7 +78,7 @@ export const HeaderText = styled.header`
     height: 140px;
     .main-text {
       line-height: 55px;
-      font-size: 3.5rem;
+      font-size: ${(props) => (props.checkSaudiFlag ? "3.5rem" : "3rem")};
     }
   }
 `;
@@ -94,7 +95,7 @@ export const Card = styled.div`
   .back {
     display: flex;
     align-items: center;
-    ${(props) => (!props.checkSaudiFlag && 'justify-content:end;')}
+    ${(props) => !props.checkSaudiFlag && "justify-content:end;"}
     position: absolute;
     width: 100%;
     height: 100%;
@@ -105,8 +106,7 @@ export const Card = styled.div`
   }
 
   .front {
-
-   ${props => !props.checkSaudiFlag && 'transform: rotate(180deg);'}
+    ${(props) => !props.checkSaudiFlag && "transform: rotate(180deg);"}
 
     padding: 30px 15px;
 
@@ -164,17 +164,15 @@ export const Card = styled.div`
     // 75% T top
     h5 {
       color: ${(props) => (props.checkDarkMode ? "#E5E5E5" : "#E5E5E5")};
-      ${(props) => (!props.checkSaudiFlag && 'transform: rotate(180deg);')}
+      ${(props) => !props.checkSaudiFlag && "transform: rotate(180deg);"}
       width: 50%;
       font-family: "Open Sans", Tahoma, Arial, Helvetica;
-      // -webkit-background-clip: text;
-      // color: transparent;
     }
     img {
       width: 80px;
       position: absolute;
       top: 70px;
-      ${(props) => (!props.checkSaudiFlag && 'transform: rotate(180deg);')}
+      ${(props) => !props.checkSaudiFlag && "transform: rotate(180deg);"}
     }
 
     video {
@@ -197,12 +195,11 @@ export const Card = styled.div`
     @media (max-width: 1000px) {
       h5 {
         width: 50%;
-        font-size: 1.2rem;
+        font-size: ${(props) => (props.checkSaudiFlag ? " 1.2rem" : "1rem")};
         font-weight: 700;
       }
       img {
-        width: 70px;
-        position: absolute;
+        width: 60px;
         ${(props) => (props.checkSaudiFlag ? "left: 15px;" : "right: 15px;")}
         top: 70px;
       }

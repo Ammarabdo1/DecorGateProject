@@ -93,7 +93,7 @@ const Navbar = (props) => {
                   exact
                   className={checkClickLink == "family" ? "link1" : "link"}
                 >
-                  {props.checkSaudiFlag ? 'البعض من مشارعنا' : 'Some of our projects'} 
+                  {props.checkSaudiFlag ? 'البعض من مشاريعنا' : 'Some of our projects'} 
                 </Link>
               </li>
               <li>
@@ -164,7 +164,6 @@ const Navbar = (props) => {
                 <Button
                   onClick={() => {
                     props.setCheckSaudiFlag(!props.checkSaudiFlag)
-                    props.setCheckDarkMode(true)
                   }}
                   style={{ height: "100%" }}
                 >

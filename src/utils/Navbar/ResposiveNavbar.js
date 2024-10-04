@@ -162,7 +162,7 @@ export default function TemporaryDrawer(props) {
           className="navbar-img"
           src="images/icons/NavbarLogo.png"
           alt="Logo"
-          width="50"
+          width="45"
           style={{ borderRadius: "50%" }}
         />
 

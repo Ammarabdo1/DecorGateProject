@@ -18,7 +18,7 @@ const slides = [bgImg, "", bgImg2, "", bgImg3, "", bgImg4, ""];
 
 const mSlides = [mobileBgImg, "", mBgImg2, "", mBgImg3, "", mBgImg4, ""];
 
-const ViewHeader = (props) => {
+const ViewHeader = ({checkDarkMode, checkSaudiFlag}) => {
   const [showImgHover, setShowImgHover] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
   const [index, set] = useState(0);
@@ -69,19 +69,19 @@ const ViewHeader = (props) => {
   });
   return (
     <>
-      <ElementHeader checkDarkMode={props.checkDarkMode}>
+      <ElementHeader checkDarkMode={checkDarkMode} checkSaudiFlag={checkSaudiFlag} >
         <header>
           <Typography variant="h2">
-            {props.checkSaudiFlag ? "بوابة الديكور" : "Decor Gate"}
+            {checkSaudiFlag ? "بوابة الديكور" : "Decor Gate"}
           </Typography>
           <Typography variant="h3">
-            {props.checkSaudiFlag ? "عالم من الفن" : "A world of art"}
+            {checkSaudiFlag ? "عالم من الفن" : "A world of art"}
           </Typography>
         </header>
         
           <div className="flex fill center">
             {transitions((style, i) => (
-              showImgHover && <animated.div
+              <animated.div
                 className="change-img"
                 style={{
                   ...style,

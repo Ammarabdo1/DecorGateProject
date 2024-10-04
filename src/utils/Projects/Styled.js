@@ -52,7 +52,7 @@ export const ProjectsContainer = styled.div`
       height: 15vh;
       h1 {
         margin-bottom: 0px;
-        font-size: 2rem;
+        font-size: 1.7rem;
         padding-right: ${(props) => (props.checkSaudiFlag ? "10px" : "0")};
         padding-left: ${(props) => (!props.checkSaudiFlag ? "10px" : "0")};
       }

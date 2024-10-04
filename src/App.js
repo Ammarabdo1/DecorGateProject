@@ -27,7 +27,7 @@ function App() {
       }}
     >
       {loader ? (
-        <StartUpLoader setLoader={setLoader} />
+        <StartUpLoader setLoader={setLoader} style={{overflow:'hidden',}} />
       ) : checkSaudiFlag ? (
         <Router>
           <Navbar

@@ -14,6 +14,9 @@ import { useTrail, animated } from "@react-spring/web";
 
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 const AppContainer = styled("div", {
   position: "relative",
   width: "100%",
@@ -132,6 +135,8 @@ const items = [
 ];
 
 export default function StartUpLoader(props) {
+  AOS.init()
+
   const [trail, api] = useTrail(items.length, () => ({
     rotateX: 0,
   }));
@@ -165,8 +170,10 @@ export default function StartUpLoader(props) {
     });
     isFlipped.current = true;
   }, []);
+
+
   return (
-    <AppContainer style={{ direction: "ltr" }}>
+    <AppContainer style={{ direction: "ltr" }} data-aos='zoom-out' data-aos-duration='2000'>
       <Container>
         {trail.map(({ rotateX }, i) => (
           <Box key={i}>
