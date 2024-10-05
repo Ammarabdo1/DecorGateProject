@@ -10,6 +10,8 @@ export const ServicesContainer = styled.div`
         : "circle at center, white, #eecd95ae"}
   );
 
+  // background: ${(props) => (props.checkDarkMode ? "gray" : "#eecd95ae")};
+
   .container {
     width: 100%;
     display: flex;

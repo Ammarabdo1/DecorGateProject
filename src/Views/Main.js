@@ -15,7 +15,7 @@ const Main = (props) => {
       <About checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
       <Projects checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
       <Services checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
-      <ContactUs/>
+      <ContactUs checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
     </div>
   );
 };
