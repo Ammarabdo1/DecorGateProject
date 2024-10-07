@@ -7,6 +7,8 @@ import MainUSA from "./Views/MainUSA";
 import StartUpLoader from "./Views/StartUpLoader";
 import NotFound from "./Views/NotFound";
 function App() {
+  //TODO>> make a style to home at start up the code
+  const [checkClickLink, setCheckClickLink] = useState("Home");
   //TODO>> Toggle color of page
   const [checkDarkMode, setCheckDarkMode] = useState(true);
   //TODO>> check saudi flag
@@ -27,7 +29,7 @@ function App() {
       }}
     >
       {loader ? (
-        <StartUpLoader setLoader={setLoader} style={{overflow:'hidden',}} />
+        <StartUpLoader setLoader={setLoader} style={{ overflow: "hidden" }} />
       ) : checkSaudiFlag ? (
         <Router>
           <Navbar
@@ -35,6 +37,8 @@ function App() {
             setCheckDarkMode={setCheckDarkMode}
             checkSaudiFlag={checkSaudiFlag}
             setCheckSaudiFlag={setCheckSaudiFlag}
+            checkClickLink = {checkClickLink}
+            setCheckClickLink = {setCheckClickLink}
           />
 
           <Routes>
@@ -45,11 +49,11 @@ function App() {
                   checkDarkMode={checkDarkMode}
                   setCheckDarkMode={setCheckDarkMode}
                   checkSaudiFlag={checkSaudiFlag}
-            />
+                />
               }
             />
 
-            <Route path="/*" element={<NotFound />} />
+            <Route path="/*" element={<NotFound setCheckClickLink={setCheckClickLink} />} />
             {/* <Route
               path="/heros"
               element={
@@ -88,6 +92,8 @@ function App() {
             setCheckDarkMode={setCheckDarkMode}
             checkSaudiFlag={checkSaudiFlag}
             setCheckSaudiFlag={setCheckSaudiFlag}
+            checkClickLink = {checkClickLink}
+            setCheckClickLink = {setCheckClickLink}
           />
           <Routes>
             <Route
@@ -97,7 +103,7 @@ function App() {
                   checkDarkMode={checkDarkMode}
                   setCheckDarkMode={setCheckDarkMode}
                   checkSaudiFlag={checkSaudiFlag}
-            />
+                />
               }
             />
             <Route path="/*" element={<NotFound />} />

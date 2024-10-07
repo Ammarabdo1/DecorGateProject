@@ -67,6 +67,11 @@ export const TextComponent = styled.div`
       }
     }
 
+    .icon {
+      font-size: 2rem;
+      margin-right: 5px;
+    }
+
     h5 {
       width: 300px;
       color: ${(props) => (props.checkDarkMode ? "#e5e5e5" : "#585858")};
@@ -78,19 +83,25 @@ export const TextComponent = styled.div`
   }
   @media (max-width: 1000px) {
     margin-bottom: 30px;
-    margin-right: 300px;
+    ${(props) =>
+      props.checkSaudiFlag ? "margin-right: 300px" : "margin-left: 300px"};
 
     h6 {
-      font-size: 1rem;
+      font-size: ${(props) => (props.checkSaudiFlag ? "1rem" : ".8rem")};
     }
 
     h3 {
-      font-size: 1.8rem;
+      font-size: ${(props) => (props.checkSaudiFlag ? "1.8rem" : "1.5rem")};
       width: 50%;
     }
 
+    .icon {
+      font-size: 1.1rem !important ;
+    }
+
     h5 {
-      width: 100px;
+      font-size: ${(props) => (props.checkSaudiFlag ? "1.3em" : "1.1rem")};
+      width: 180px !important;
       margin-top: 15px;
       padding-top: 8px;
       border-top: 1px solid;
@@ -219,6 +230,11 @@ export const FromComponent = styled.div`
           }
         }
 
+        .submit {
+          color: white;
+          background: ${props => props.checkDarkMode ? '#ebc481' : '#003641'}
+        }
+
         .card {
           input {
             display: none;
@@ -239,11 +255,68 @@ export const FromComponent = styled.div`
     @media (max-width: 1000px) {
       .form {
         width: 290px;
-        height: 500px;
+        height: 420px;
+
+        @keyframes freeRotate {
+        0% {
+          padding: 10px;
+          transform: rotate(25deg);
+          width: 10px;
+          height: 10px;
+          box-shadow: 0 0 10px 3px
+            ${(props) => (props.checkDarkMode ? "#EECE95" : "#585858")};
+        }
+        50% {
+          padding: 10px;
+          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+          transform: rotate(45deg);
+          box-shadow: 0 0 10px 3px
+            ${(props) => (props.checkDarkMode ? "#585858" : "#ebc481")};
+        }
+        100% {
+          padding: 10px;
+          width: 10px;
+          height: 10px;
+          transform: rotate(25deg);
+          box-shadow: 0 0 10px 3px
+            ${(props) => (props.checkDarkMode ? "#EECE95" : "#585858")};
+        }
+      }
+
+      @keyframes middleTransition {
+        0% {
+          padding: 10px;
+          transform: rotate(0deg);
+          width: 290px;
+        height: 420px;
+        }
+
+        100% {
+          padding: 10px;
+          width: 10px;
+          height: 10px;
+          transform: rotate(35deg);
+        }
+      }
+
+      @keyframes onceRotate {
+        0% {
+          width: 10px;
+          height: 10px;
+          transform: rotate(45deg);
+        }
+        100% {
+          width: 290px;
+        height: 420px;
+          transform: rotate(0deg);
+        }
+      }
 
         .mainStackInForm {
           width: 290px;
-        height: 500px;
+          height: 420px;
           .name-phone-fields {
           display: flex !important;
           flex-direction: column;
@@ -254,7 +327,8 @@ export const FromComponent = styled.div`
           }
 
           .phone-filed {
-            width: 100%;
+            display: none;
+            // width: 100%;
           }
         }
       }

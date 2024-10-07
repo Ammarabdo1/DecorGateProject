@@ -9,9 +9,15 @@
 }
 * ::-moz-selection {
   background-color: rgba(238, 205, 149, 0.431372549);
+  color: white;
+  text-decoration: none;
+  border: none;
 }
 * ::selection {
   background-color: rgba(238, 205, 149, 0.431372549);
+  color: white;
+  text-decoration: none;
+  border: none;
 }
 
 html, body {

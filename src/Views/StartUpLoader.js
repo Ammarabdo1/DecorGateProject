@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CloseLoader } from "../utils/Start/Styled";
+import { CloseLoader, StartUpContainer } from "../utils/Start/Styled";
 import { Button, Typography } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
@@ -14,12 +14,12 @@ import { useTrail, animated } from "@react-spring/web";
 
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AppContainer = styled("div", {
   position: "relative",
-  width: "100%",
+  width: "100vw",
   height: "100vh",
   display: "flex",
   flexDirection: "column",
@@ -135,7 +135,7 @@ const items = [
 ];
 
 export default function StartUpLoader(props) {
-  AOS.init()
+  AOS.init();
 
   const [trail, api] = useTrail(items.length, () => ({
     rotateX: 0,
@@ -171,49 +171,54 @@ export default function StartUpLoader(props) {
     isFlipped.current = true;
   }, []);
 
-
   return (
-    <AppContainer style={{ direction: "ltr" }} data-aos='zoom-out' data-aos-duration='2000'>
-      <Container>
-        {trail.map(({ rotateX }, i) => (
-          <Box key={i}>
-            <FrontBox
-              key={items[i]}
-              style={{
-                transform: rotateX.to(
-                  (val) => `perspective(600px) rotateX(${val}deg)`
-                ),
-                transformStyle: "preserve-3d",
-              }}
-            ></FrontBox>
-            <BackBox
-              gradientIndex={gradientIndex}
-              style={{
-                // background: gradients[gradientIndex],
-                transform: rotateX.to(
-                  (val) => `perspective(600px) rotateX(${180 - val}deg)`
-                ),
-                transformStyle: "preserve-3d",
-              }}
-            >
-              {items[i]}
-            </BackBox>
-          </Box>
-        ))}
-      </Container>
-      <ScaleLoader
-        className="loader"
-        color="#ffff"
-        height={80}
-        radius={100}
-        speedMultiplier={1}
-        width={10}
-      />
-      <CloseLoader>
-        <Button onClick={() => props.setLoader(false)}>
-          <CloseIcon style={{ fontSize: "2rem", color: "#EECE95" }} />
-        </Button>
-      </CloseLoader>
-    </AppContainer>
+    <StartUpContainer>
+      <AppContainer
+        style={{ direction: "ltr" }}
+        data-aos="zoom-out"
+        data-aos-duration="2000"
+      >
+        <Container>
+          {trail.map(({ rotateX }, i) => (
+            <Box key={i}>
+              <FrontBox
+                key={items[i]}
+                style={{
+                  transform: rotateX.to(
+                    (val) => `perspective(600px) rotateX(${val}deg)`
+                  ),
+                  transformStyle: "preserve-3d",
+                }}
+              ></FrontBox>
+              <BackBox
+                gradientIndex={gradientIndex}
+                style={{
+                  // background: gradients[gradientIndex],
+                  transform: rotateX.to(
+                    (val) => `perspective(600px) rotateX(${180 - val}deg)`
+                  ),
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                {items[i]}
+              </BackBox>
+            </Box>
+          ))}
+        </Container>
+        <ScaleLoader
+          className="loader"
+          color="#ffff"
+          height={80}
+          radius={100}
+          speedMultiplier={1}
+          width={10}
+        />
+        <CloseLoader>
+          <Button onClick={() => props.setLoader(false)}>
+            <CloseIcon style={{ fontSize: "2rem", color: "#EECE95" }} />
+          </Button>
+        </CloseLoader>
+      </AppContainer>
+    </StartUpContainer>
   );
 }

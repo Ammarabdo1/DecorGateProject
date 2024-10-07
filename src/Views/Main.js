@@ -1,5 +1,6 @@
 import About from "../components/About";
 import ContactUs from "../components/ContactUs";
+import Footer from "../components/Footer";
 // import Media from "../components/Media";
 import Projects from "../components/Projects";
 import Services from "../components/Services";
@@ -16,6 +17,7 @@ const Main = (props) => {
       <Projects checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
       <Services checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
       <ContactUs checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
+      <Footer checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
     </div>
   );
 };

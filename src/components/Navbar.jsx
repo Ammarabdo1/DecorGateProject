@@ -14,8 +14,6 @@ import SwitchModeColor from "../utils/Navbar/MaterialUISwitch";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const Navbar = (props) => {
-  //TODO>> make a style to home at start up the code
-  const [checkClickLink, setCheckClickLink] = useState("Home");
 
   //TODO>> check scroll
   const [checkScroll, setCheckScroll] = useState(false);
@@ -66,8 +64,8 @@ const Navbar = (props) => {
                 {/* //! Home Link */}
                 <Link
                   to="/"
-                  onClick={() => setCheckClickLink("Home")}
-                  className={checkClickLink == "Home" ? "link1" : "link"}
+                  onClick={() => props.setCheckClickLink("Home")}
+                  className={props.checkClickLink == "Home" ? "link1" : "link"}
                 >
                   {props.checkSaudiFlag ? 'الرئيسية' : 'Home'} 
                 </Link>
@@ -79,9 +77,9 @@ const Navbar = (props) => {
               <li>
                 <Link
                   to="/heros"
-                  onClick={() => setCheckClickLink("heros")}
+                  onClick={() => props.setCheckClickLink("heros")}
                   exact
-                  className={checkClickLink == "heros" ? "link1" : "link"}
+                  className={props.checkClickLink == "heros" ? "link1" : "link"}
                 >
                  {props.checkSaudiFlag ? ' من نحن' : 'About Us'} 
                 </Link>
@@ -89,9 +87,9 @@ const Navbar = (props) => {
               <li>
                 <Link
                   to="/family"
-                  onClick={() => setCheckClickLink("family")}
+                  onClick={() => props.setCheckClickLink("family")}
                   exact
-                  className={checkClickLink == "family" ? "link1" : "link"}
+                  className={props.checkClickLink == "family" ? "link1" : "link"}
                 >
                   {props.checkSaudiFlag ? 'البعض من مشاريعنا' : 'Some of our projects'} 
                 </Link>
@@ -99,10 +97,10 @@ const Navbar = (props) => {
               <li>
                 <Link
                   to="/Championships"
-                  onClick={() => setCheckClickLink("championships")}
+                  onClick={() => props.setCheckClickLink("championships")}
                   exact
                   className={
-                    checkClickLink == "championships" ? "link1" : "link"
+                    props.checkClickLink == "championships" ? "link1" : "link"
                   }
                 >
                   {" "}
@@ -113,9 +111,9 @@ const Navbar = (props) => {
               <li>
                 <Link
                   to="/heros"
-                  onClick={() => setCheckClickLink("AboutUs")}
+                  onClick={() => props.setCheckClickLink("AboutUs")}
                   exact
-                  className={checkClickLink == "AboutUs" ? "link1" : "link"}
+                  className={props.checkClickLink == "AboutUs" ? "link1" : "link"}
                 >
                   {" "}
                   {props.checkSaudiFlag ? 'خدماتنا' : 'Services'} 
@@ -124,9 +122,9 @@ const Navbar = (props) => {
               <li>
                 <Link
                   to="/heros"
-                  onClick={() => setCheckClickLink("Send")}
+                  onClick={() => props.setCheckClickLink("Send")}
                   exact
-                  className={checkClickLink == "Send" ? "link1" : "link"}
+                  className={props.checkClickLink == "Send" ? "link1" : "link"}
                 >
                  {props.checkSaudiFlag ? ' تواصل معنا' : 'Contact Us'} 
                 </Link>

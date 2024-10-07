@@ -278,7 +278,9 @@ const WhatsContainer = styled.div`
     bottom: 20px;
     left: 20px;
     &:hover {
-      transform: rotate3d(0, 1, 0, 180deg);
+        transform: rotateY(180deg) scale(1.2);
+        box-shadow: 0 0 8px 2px ; 
+        border-radius: 50%;
     }
   }
 
@@ -294,7 +296,9 @@ const WhatsContainer = styled.div`
     bottom: 20px;
     left: 40%;
     &:hover {
-      transform: rotate3d(0, 1, 0, 180deg);
+        transform: rotateY(180deg) scale(1.2);
+        box-shadow: 0 0 8px 2px ; 
+        border-radius: 50%;
     }
   }
 
@@ -311,7 +315,9 @@ const WhatsContainer = styled.div`
     right: 20px;
     width: 43px;
     &:hover {
-      transform: rotate3d(0, 1, 0, 180deg);
+        transform: rotateY(180deg) scale(1.2);
+        box-shadow: 0 0 8px 2px ; 
+        border-radius: 50%;
     }
   }
 `;

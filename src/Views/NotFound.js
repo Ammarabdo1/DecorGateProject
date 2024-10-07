@@ -4,17 +4,23 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const NotFound = () => {
+const NotFound = ({ setCheckClickLink }) => {
   return (
     <div style={{ height: "100vh", background: "#585858" }}>
       <NotFoundPage>
         <Typography variant="h1">Page not found </Typography>
-        <Button variant="outlined" color="warning">
-          <Link to="/">
-            <ArrowBackIcon />
-            back to home page
-          </Link>
-        </Button>
+        <Link to="/">
+          <Button
+            variant="outlined"
+            color="warning"
+            onClick={() => setCheckClickLink("Home")}
+          >
+            <span>
+              <ArrowBackIcon />
+              back to home page
+            </span>
+          </Button>
+        </Link>
       </NotFoundPage>
     </div>
   );
@@ -34,7 +40,7 @@ const NotFoundPage = styled.div`
 
   Button {
     box-shadow: 0 0 10px 2px silver;
-    a {
+    span {
       display: flex;
       color: #eece95;
       text-decoration: none;

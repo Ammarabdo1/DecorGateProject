@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTransition, animated } from "@react-spring/web";
 
-import { ElementHeader } from "../utils/ViewHeader/Styled";
+import { ElementHeader, HeaderComponent } from "../utils/ViewHeader/Styled";
 import { Typography } from "@mui/material";
 
 import bgImg from "../utils/ViewHeader/images/H2.jpeg";
@@ -68,7 +68,7 @@ const ViewHeader = ({checkDarkMode, checkSaudiFlag}) => {
     exitBeforeEnter: true,
   });
   return (
-    <>
+    <HeaderComponent>
       <ElementHeader checkDarkMode={checkDarkMode} checkSaudiFlag={checkSaudiFlag} >
         <header>
           <Typography variant="h2">
@@ -93,7 +93,7 @@ const ViewHeader = ({checkDarkMode, checkSaudiFlag}) => {
           </div>
         
       </ElementHeader>
-    </>
+    </HeaderComponent>
   );
 };
 

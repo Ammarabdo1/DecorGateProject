@@ -9,6 +9,9 @@
   transition: background-color 1s ease, color 0.3s ease, box-shadow 0.3s ease;
   ::selection {
     background-color: #eecd956e;
+    color: white;
+    text-decoration: none;
+    border: none;
   }
 }
 

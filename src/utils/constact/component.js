@@ -8,6 +8,7 @@ import {
   Box,
   Grid,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 
 import { AR, USA } from "./translation";
@@ -27,6 +28,8 @@ import MessageIcon from "@mui/icons-material/Message";
 
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
+import EmailIcon from '@mui/icons-material/Email';
+
 import { ClipLoader } from "react-spinners";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -42,7 +45,6 @@ const ContactComponent = ({
   noneSelectField,
   onFocusField,
   setOnFocusField,
-  
 }) => {
   //! for name email pass
   const [name, setName] = useState("");
@@ -70,9 +72,7 @@ const ContactComponent = ({
   const [checkFirstClickOnMessage, setCheckFirstClickOnMessage] =
     useState(false);
 
-
   const [checkFocusEmail, setCheckFocusEmail] = useState(false);
-
 
   const [habitRun, setHabitRun] = useState("");
   const [habitRead, setHabitRead] = useState("");
@@ -169,7 +169,7 @@ const ContactComponent = ({
     "ميتناكه",
     "نتن",
     "وسخ",
-    "عبيط"
+    "عبيط",
   ];
 
   useEffect(() => {
@@ -182,6 +182,8 @@ const ContactComponent = ({
       setCheckUnValidMessage(false);
     }
   }, [message]);
+
+  const isMobile = useMediaQuery("(max-width: 1000px)");
 
   return (
     <Grid
@@ -200,7 +202,10 @@ const ContactComponent = ({
           justifyContent: "center",
         }}
       >
-        <TextComponent checkDarkMode={checkDarkMode}>
+        <TextComponent
+          checkDarkMode={checkDarkMode}
+          checkSaudiFlag={checkSaudiFlag}
+        >
           <Box width={600} className="text" data-aos="fade-down-left">
             <Typography variant="h6">
               {checkSaudiFlag ? AR.title : USA.title}
@@ -209,7 +214,7 @@ const ContactComponent = ({
               {checkSaudiFlag ? AR.content : USA.content}{" "}
               <span>
                 {checkSaudiFlag ? AR.subContent : USA.subContent}
-                <AutoAwesomeIcon />
+                <AutoAwesomeIcon className="icon" />
               </span>
             </Typography>
             <Typography variant="h5">
@@ -245,8 +250,8 @@ const ContactComponent = ({
                         color: checkDarkMode ? "silver" : "black",
                       },
                     }}
-                    onFocus={()=>setOnFocusField(true)}
-                    onBlur={()=>setOnFocusField(false)}
+                    onFocus={() => setOnFocusField(true)}
+                    onBlur={() => setOnFocusField(false)}
                     required
                     className="name-filed"
                     value={name}
@@ -272,8 +277,8 @@ const ContactComponent = ({
                     }}
                     onChange={(e) => setName(e.target.value)}
                     onClick={() => {
-                      setStartPositionForm(false)
-                      setNoneSelectField(false)
+                      setStartPositionForm(false);
+                      setNoneSelectField(false);
                       setSelectField(true);
                       setCheckFirstClickOnNameButton(true);
                     }}
@@ -310,8 +315,8 @@ const ContactComponent = ({
                         color: checkDarkMode ? "silver" : "black",
                       },
                     }}
-                    onFocus={()=>setOnFocusField(true)}
-                    onBlur={()=>setOnFocusField(false)}
+                    onFocus={() => setOnFocusField(true)}
+                    onBlur={() => setOnFocusField(false)}
                     required
                     value={phoneNumber}
                     type="text"
@@ -322,14 +327,9 @@ const ContactComponent = ({
                     InputProps={{
                       endAdornment: (
                         <InputAdornment position="end">
-                          {checkUnValidPhoneNumber &&
-                          checkFirstClickOnPhoneNumber ? (
-                            <ErrorOutlineIcon style={{ color: "red" }} />
-                          ) : (
-                            <PhoneAndroidIcon
-                              style={{ color: checkDarkMode && "white" }}
-                            />
-                          )}
+                          <PhoneAndroidIcon
+                            style={{ color: checkDarkMode && "white" }}
+                          />
                         </InputAdornment>
                       ),
                       style: {
@@ -338,29 +338,22 @@ const ContactComponent = ({
                     }}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     onClick={() => {
-                      setStartPositionForm(false)
-                      setNoneSelectField(false)
+                      setStartPositionForm(false);
+                      setNoneSelectField(false);
                       setSelectField(true);
                       setCheckFirstClickOnPhoneNumber(true);
                     }}
-                    error={
-                      checkUnValidPhoneNumber && checkFirstClickOnPhoneNumber
-                    }
                     color={!checkUnValidPhoneNumber ? "success" : "primary"}
                     helperText={
                       checkUnValidPhoneNumber ? (
-                        phoneNumber.length == 0 ? (
+                        phoneNumber.length == 0 && (
                           <div
                             style={{
                               color: checkDarkMode && "white",
                               marginLeft: "15px",
                             }}
                           >
-                            Required
-                          </div>
-                        ) : (
-                          <div style={{ marginLeft: "15px" }}>
-                            {errorPhoneNumber}
+                            optional
                           </div>
                         )
                       ) : (
@@ -380,16 +373,16 @@ const ContactComponent = ({
                       color: checkDarkMode ? "silver" : "black",
                     },
                   }}
-                  onFocus={()=>setOnFocusField(true)}
-                  onBlur={()=>setOnFocusField(false)}
+                  onFocus={() => setOnFocusField(true)}
+                  onBlur={() => setOnFocusField(false)}
                   onClick={() => {
-                    setStartPositionForm(false)
-                    setNoneSelectField(false)
+                    setStartPositionForm(false);
+                    setNoneSelectField(false);
                     setSelectField(true);
                     setCheckFirstClickOnEmailButton(true);
                   }}
                   error={
-                    (!email.endsWith("@gmail.com") || email.length < 13) &&
+                    (!email.endsWith(".com") || !email.includes('@') || email.includes('@.com') || email.length < 9) &&
                     checkFirstClickOnEmailButton
                   }
                   variant="filled"
@@ -399,7 +392,7 @@ const ContactComponent = ({
                   required
                   onChange={(e) => setEmail(e.target.value)}
                   color={
-                    (!email.endsWith("@gmail.com") || email.length < 13) &&
+                    (!email.endsWith(".com") || !email.includes('@') || email.includes('@.com') || email.length < 9) &&
                     checkFirstClickOnEmailButton
                       ? "primary"
                       : "success"
@@ -407,11 +400,11 @@ const ContactComponent = ({
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
-                        {(!email.endsWith("@gmail.com") || email.length < 13) &&
+                        {(!email.endsWith(".com") || !email.includes('@') || email.includes('@.com') || email.length < 9) &&
                         checkFirstClickOnEmailButton ? (
                           <ErrorOutlineIcon style={{ color: "red" }} />
                         ) : (
-                          ""
+                          <EmailIcon style={{color: 'white'}} />
                         )}
                       </InputAdornment>
                     ),
@@ -420,7 +413,7 @@ const ContactComponent = ({
                     },
                   }}
                   helperText={
-                    email.endsWith("@gmail.com") && email.length >= 13 ? (
+                    email.endsWith(".com") && email.includes('@') && !email.includes('@.com') && email.length >= 9 ? (
                       <div className="success">
                         <CheckIcon /> is valid
                       </div>
@@ -428,30 +421,29 @@ const ContactComponent = ({
                       <div style={{ color: checkDarkMode && "white" }}>
                         Required
                       </div>
-                    ) : email.endsWith("@gmail.com") ? (
+                    ) : email.endsWith(".com") && email.includes('@') && !email.includes('@.com') ? (
                       <div className="flex">
-                        At least 3 letters before_@gmail.com
+                        must letters before_@Examle.com
                       </div>
                     ) : (
-                      "Must include_@gmail.com at the end"
+                      "Must include_@ ---.com at the end"
                     )
                   }
                 />
                 {/* Message */}
                 <TextField
-
                   InputLabelProps={{
                     style: {
                       color: checkDarkMode ? "silver" : "black",
                     },
                   }}
-                  onFocus={()=>setOnFocusField(true)}
-                  onBlur={()=>setOnFocusField(false)}
+                  onFocus={() => setOnFocusField(true)}
+                  onBlur={() => setOnFocusField(false)}
                   required
                   value={message}
                   multiline
                   // maxRows={3}
-                  minRows={4}
+                  minRows={isMobile ? 2 : 5}
                   variant="standard"
                   label="Massage"
                   variant="outlined"
@@ -473,9 +465,8 @@ const ContactComponent = ({
                   }}
                   onChange={(e) => setMessage(e.target.value)}
                   onClick={() => {
-                    setStartPositionForm(false)
-                    setNoneSelectField(false)
-                    console.log(noneSelectField)
+                    setStartPositionForm(false);
+                    setNoneSelectField(false);
                     setSelectField(true);
                     setCheckFirstClickOnMessage(true);
                   }}
@@ -513,14 +504,15 @@ const ContactComponent = ({
                     name.length < 3 || //! first name
                     message.length < 3 || //! message
                     checkUnValidMessage || //! message
-                    !email.includes("@gmail.com") || //! Email
-                    checkUnValidPhoneNumber
-                    // (!toggleRun &&
-                    //   !toggleRead &&
-                    //   !toggleWrite &&
-                    //   !toggleGym &&
-                    //   !toggleHelp) || //! Habits
+                    !email.endsWith(".com") || //! Email
+                    !email.includes("@") || //! Email
+                    email.includes("@.com") //! Email
                   }
+                  onClick={() => {
+                    setStartPositionForm(false);
+                    setNoneSelectField(false);
+                    setSelectField(true);
+                  }}
                   className="submit"
                   variant="contained"
                   color="info"

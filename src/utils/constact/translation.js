@@ -9,5 +9,5 @@ export const USA = {
     title: 'How can we help you',
     content: 'If you have any questions, please feel free to ask,',
     subContent: 'We are at your service',
-    res: 'respond within 48 hours.',
+    res: 'respond within 48 h.',
 }

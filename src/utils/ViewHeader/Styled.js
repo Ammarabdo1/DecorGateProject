@@ -2,9 +2,29 @@ import styled from "styled-components";
 import bgImg from "./images/main.png";
 import bgImgM from "./images/mobile.jpeg";
 
+export const HeaderComponent = styled.div`
+  position: relative;
+  overflow: hidden;
+  height: 80vh;
+`;
+
 export const ElementHeader = styled.div`
   position: relative;
-  
+  @keyframes scale {
+    0% {
+      opacity(1);
+    }
+
+    50% {
+      opacity(.5);
+    }
+
+    100% {
+      opacity(1);
+    }
+  }
+
+  animation: scale 12s ease infinite alternate;
   height: 80vh;
   background: url(${bgImg}) no-repeat;
   background-size: cover;
@@ -38,7 +58,8 @@ export const ElementHeader = styled.div`
       ${(props) => (props.checkDarkMode ? "0px" : "100px")}
     );
     padding: ${(props) => (props.checkDarkMode ? "0" : "0 10px")};
-      border-bottom: 3px solid ${(props) => (props.checkDarkMode ? "#eece95" : "")};
+    border-bottom: 3px solid
+      ${(props) => (props.checkDarkMode ? "#eece95" : "")};
     line-height: 80px;
   }
 

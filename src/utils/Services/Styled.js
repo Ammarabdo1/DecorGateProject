@@ -140,8 +140,8 @@ export const Card = styled.div`
         : props.checkDarkMode
         ? `background-image: conic-gradient(
       from 45deg,
-      #172F49 0%,
-      #172F49 25%,
+      silver 0%,
+      silver 25%,
       #eece95 25%,
       #5858585f 50%,
       #e5e5e5 60%,
@@ -151,8 +151,8 @@ export const Card = styled.div`
         : `
     background-image: conic-gradient(
       from 45deg,
-      #172F49 0%,
-      #172F49 25%,
+      gray 0%,
+      gray 25%,
       #585858 25%,
       #5858585f 50%,
       #585858 60%,
