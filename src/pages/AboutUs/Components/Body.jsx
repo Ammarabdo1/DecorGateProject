@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
-import { AboutContainer } from "../utils/About/Styled";
-import { AR, USA } from "../utils/About/Translation";
+import { useEffect } from "react";
+
+import { AboutContainer } from "../utils/styled";
+import { AR, USA } from "../utils/translation";
 
 //! mui component
 import { Typography, Grid, Button } from "@mui/material";
@@ -19,8 +20,9 @@ import { Link } from "react-router-dom";
 //! aos scroll animation
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Photos from "../utils/photosTransition";
 
-const About = (props) => {
+const Body = (props) => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -39,7 +41,7 @@ const About = (props) => {
         >
           <Typography variant="h2">
             {props.checkSaudiFlag ? AR.TITLE : USA.TITLE}{" "}
-            <TipsAndUpdatesIcon className='lamp-icon'/>
+            <TipsAndUpdatesIcon className="lamp-icon" />
           </Typography>
           <Typography variant="subtitle1">
             {props.checkSaudiFlag ? AR.DIS : USA.DIS}
@@ -47,34 +49,36 @@ const About = (props) => {
               {" "}
               <p>{props.checkSaudiFlag ? AR.ST : USA.ST}</p>{" "}
               {props.checkSaudiFlag ? (
-                <ArrowBackIcon style={{ color: props.checkDarkMode ? "#EECE95" : '#003641' }} />
+                <ArrowBackIcon
+                  style={{ color: props.checkDarkMode ? "#EECE95" : "#003641" }}
+                />
               ) : (
-                <ArrowForwardIcon style={{ color: props.checkDarkMode ? "#EECE95" : '#003641' }} />
+                <ArrowForwardIcon
+                  style={{ color: props.checkDarkMode ? "#EECE95" : "#003641" }}
+                />
               )}{" "}
               <p>{props.checkSaudiFlag ? AR.ND : USA.ND}</p>{" "}
               {props.checkSaudiFlag ? (
-                <ArrowBackIcon style={{ color: props.checkDarkMode ? "#EECE95" : '#003641' }} />
+                <ArrowBackIcon
+                  style={{ color: props.checkDarkMode ? "#EECE95" : "#003641" }}
+                />
               ) : (
-                <ArrowForwardIcon style={{ color: props.checkDarkMode ? "#EECE95" : '#003641' }} />
+                <ArrowForwardIcon
+                  style={{ color: props.checkDarkMode ? "#EECE95" : "#003641" }}
+                />
               )}{" "}
               <p>{props.checkSaudiFlag ? AR.RD : USA.RD}</p>{" "}
             </span>
           </Typography>
-          <Link to='/about' >
-            <Button variant="contained">
-              {props.checkSaudiFlag ? AR.BTN : USA.BTN}
-            </Button>
-          </Link>
         </Grid>
 
-        <Grid md={5} sm={12} data-aos="fade-up" data-aos-duration="1000">
-          <div className="img-container">
-            <img src="images/AboutImg.jpeg" alt="company" />
-          </div>
-        </Grid>
+        <Photos
+          checkSaudiFlag={props.checkSaudiFlag}
+          checkDarkMode={props.checkDarkMode}
+        />
       </Grid>
     </AboutContainer>
   );
 };
 
-export default About;
+export default Body;

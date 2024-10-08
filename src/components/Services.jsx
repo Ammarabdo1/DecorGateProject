@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { ServicesContainer, HeaderText, Card } from "../utils/Services/Styled";
 import { AR, USA } from "../utils/Services/Translelation";
 
+import { Link } from "react-router-dom";
+
 import imgInternal from "../utils/Services/images/Internal.jpg";
 import imgOuter from "../utils/Services/images/out.jpg";
 import imgLandScap from "../utils/Services/images/park.jpg";
@@ -104,7 +106,8 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.area : USA.area }</Typography>{" "}
-              <Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button>
+              <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.area_des : USA.area_des }</Typography>
+              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -129,7 +132,8 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5">{props.checkSaudiFlag ? AR.outer : USA.outer }</Typography>
-              <Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button>
+              <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.outer_des : USA.outer_des }</Typography>
+              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -154,7 +158,8 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.park : USA.park }</Typography>
-              <Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button>
+              <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.park_des : USA.park_des }</Typography>
+              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -179,7 +184,8 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5">{props.checkSaudiFlag ? AR.internal : USA.internal } </Typography>
-              <Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button>
+              <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.internal_des : USA.internal_des }</Typography>
+              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -204,7 +210,8 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.finish : USA.finish } </Typography>{" "}
-              <Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button>
+              <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.finish_des : USA.finish_des }</Typography>
+              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -229,7 +236,7 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.build : USA.build }</Typography>{" "}
-              <Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button>
+              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -254,7 +261,7 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.look : USA.look }</Typography>{" "}
-              <Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button>
+              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -280,7 +287,8 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5">{props.checkSaudiFlag ? AR.contact : USA.contact }</Typography>{" "}
-              <Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button>
+              <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.contact_des : USA.contact_des }</Typography>{" "}
+              <Link to='contact' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>

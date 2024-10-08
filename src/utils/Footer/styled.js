@@ -6,7 +6,8 @@ export const FooterComponent = styled.div`
   overflow: hidden;
   .footer {
     padding-bottom: 180px;
-    padding-right: 100px;
+    ${(props) =>
+      props.checkSaudiFlag ? "padding-right: 100px" : "padding-left: 100px"};
     position: relative;
     min-height: 70vh;
     background-image: radial-gradient(
@@ -16,8 +17,14 @@ export const FooterComponent = styled.div`
           : "circle at center, white, #eecd95ae"}
     );
 
+    .copyright-container {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
     .img-container {
-      margin-top: 100px;
+      margin: 70px 0 40px 0;
       height: fit-content;
       @keyframes changeBgMain {
         0% {
@@ -94,18 +101,57 @@ export const FooterComponent = styled.div`
         }
       }
     }
+
+    @media (max-width: 1000px) {
+      padding-bottom: 160px;
+      padding-right: 0px;
+      padding-left: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      .img-container {
+        margin-top: 70px;
+
+        .img-main {
+          margin-right: 0px;
+        }
+      }
+    }
   }
 `;
 
 export const P1Description = styled.div`
-  width: 70%;
+  width: ${(props) => props.checkSaudiFlag ? "70%" : "77%"};
   h6 {
     margin-right: 30px;
     font-family: "Open Sans", Tahoma, Arial, Helvetica;
     color: ${(props) => (props.checkDarkMode ? "#e5e5e5" : "#585858")};
-    span {
+
+    .header-description {
       color: ${(props) => (props.checkDarkMode ? "#EECE95" : "#003641")};
       font-weight: 800;
+    }
+    .more-description {
+      ${(props) => !props.checkSaudiFlag && 'display: none'};
+    }
+    
+  }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    h6 {
+      width: 80%;
+      margin-right: 0px;
+      margin-top: 30px;
+      ${(props) => !props.checkSaudiFlag && "font-size: .8rem;"}
+
+      .more-description {
+        display: none;
+      }
     }
   }
 `;
@@ -136,6 +182,10 @@ export const P2Links = styled.div`
       }
     }
   }
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 export const P3Media = styled.div`
   h5 {
@@ -154,6 +204,19 @@ export const P3Media = styled.div`
       transform: rotateY(180deg) scale(1.2);
       box-shadow: 0 0 8px 2px;
       border-radius: 50%;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    margin-bottom: 40px;
+    h5 {
+      font-size: 1.8rem;
+      margin-top: 50px;
+      margin-bottom: 10px;
+    }
+    .media {
+      margin: 0 15px;
+      margin-top: 10px;
     }
   }
 
@@ -180,5 +243,39 @@ export const P4Contact = styled.div`
   h6 {
     font-family: "Open Sans", Tahoma, Arial, Helvetica;
     color: ${(props) => (props.checkDarkMode ? "#e5e5e5" : "#585858")};
+  }
+
+  @media (max-width: 1000px) {
+    h5 {
+      font-size: 1.8rem;
+    }
+  }
+`;
+
+export const P5Copyright = styled.div`
+  height: 70px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient(
+    ${(props) =>
+      props.checkDarkMode
+        ? "circle at center, #5858585f, #00000058, #00000058"
+        : "circle at center, #eecd95ae, #eecd95ae, #eecd95e0, #EECE95"}
+  );
+  @media (max-width: 1000px) {
+    height: 90px;
+  }
+`;
+
+export const CopyrightText = styled.h6`
+  font-family: "Open Sans", Tahoma, Arial, Helvetica;
+  font-size: 0.8rem;
+  color: ${(props) => (props.checkDarkMode ? "#e5e5e5" : "#585858")};
+  margin-bottom: 20px;
+  @media (max-width: 1000px) {
+    width: 90%;
+    line-height: 25px;
   }
 `;

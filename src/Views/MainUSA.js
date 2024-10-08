@@ -1,6 +1,4 @@
 import About from "../components/About";
-import ContactUs from "../components/ContactUs";
-import Footer from "../components/Footer";
 import Projects from '../components/Projects'
 import Services from "../components/Services";
 import ViewHeader from "../components/ViewHeader";
@@ -14,8 +12,6 @@ const MainUSA = (props) => {
       <About checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
       <Projects checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
       <Services checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
-      <ContactUs checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
-      <Footer checkSaudiFlag={props.checkSaudiFlag} checkDarkMode={props.checkDarkMode} />
       </div>
   );
 };

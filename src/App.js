@@ -6,6 +6,10 @@ import Main from "./Views/Main";
 import MainUSA from "./Views/MainUSA";
 import StartUpLoader from "./Views/StartUpLoader";
 import NotFound from "./Views/NotFound";
+import ContactUs from "./components/ContactUs";
+import Footer from "./components/Footer";
+import AboutUs from "./pages/AboutUs/AboutUs";
+
 function App() {
   //TODO>> make a style to home at start up the code
   const [checkClickLink, setCheckClickLink] = useState("Home");
@@ -37,53 +41,54 @@ function App() {
             setCheckDarkMode={setCheckDarkMode}
             checkSaudiFlag={checkSaudiFlag}
             setCheckSaudiFlag={setCheckSaudiFlag}
-            checkClickLink = {checkClickLink}
-            setCheckClickLink = {setCheckClickLink}
+            checkClickLink={checkClickLink}
+            setCheckClickLink={setCheckClickLink}
           />
 
           <Routes>
             <Route
               path="/"
               element={
-                <Main
-                  checkDarkMode={checkDarkMode}
-                  setCheckDarkMode={setCheckDarkMode}
-                  checkSaudiFlag={checkSaudiFlag}
-                />
-              }
-            />
-
-            <Route path="/*" element={<NotFound setCheckClickLink={setCheckClickLink} />} />
-            {/* <Route
-              path="/heros"
-              element={
                 <div>
-                  <Hero checkDarkMode={checkDarkMode} />
-                  <ContactUs checkDarkMode={checkDarkMode} />
+                  <Main
+                    checkDarkMode={checkDarkMode}
+                    setCheckDarkMode={setCheckDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                  <ContactUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
                 </div>
               }
             />
 
             <Route
-              path="/family"
+              path="/*"
+              element={<NotFound setCheckClickLink={setCheckClickLink} />}
+            />
+
+            <Route
+              path="/about"
               element={
                 <div>
-                  <Al3rapyFamily checkDarkMode={checkDarkMode} />
-                  <ContactUs checkDarkMode={checkDarkMode} />
+                  <AboutUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                  <ContactUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
                 </div>
               }
             />
-            <Route
-              path="/Championships"
-              element={
-                <div>
-                  <Championships checkDarkMode={checkDarkMode} />
-                  <ContactUs checkDarkMode={checkDarkMode} />
-                </div>
-              }
-            /> */}
           </Routes>
-          {/* <Footer checkDarkMode={checkDarkMode} /> */}
+
+          <Footer
+            checkDarkMode={checkDarkMode}
+            checkSaudiFlag={checkSaudiFlag}
+          />
         </Router>
       ) : (
         <Router>
@@ -92,41 +97,49 @@ function App() {
             setCheckDarkMode={setCheckDarkMode}
             checkSaudiFlag={checkSaudiFlag}
             setCheckSaudiFlag={setCheckSaudiFlag}
-            checkClickLink = {checkClickLink}
-            setCheckClickLink = {setCheckClickLink}
+            checkClickLink={checkClickLink}
+            setCheckClickLink={setCheckClickLink}
           />
           <Routes>
             <Route
               path="/"
               element={
-                <MainUSA
-                  checkDarkMode={checkDarkMode}
-                  setCheckDarkMode={setCheckDarkMode}
-                  checkSaudiFlag={checkSaudiFlag}
-                />
+                <div>
+                  <MainUSA
+                    checkDarkMode={checkDarkMode}
+                    setCheckDarkMode={setCheckDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                  <ContactUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                </div>
               }
             />
+
+            <Route
+              path="/about"
+              element={
+                <div>
+                  <AboutUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                  <ContactUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                </div>
+              }
+            />
+
             <Route path="/*" element={<NotFound />} />
-            {/*<Route
-               path="/heros"
-               element={
-                 <div>
-                   <HeroUSA checkDarkMode={checkDarkMode} />
-                   <ContactUsUSA checkDarkMode={checkDarkMode} />
-                 </div>
-               }
-             />
-             <Route
-               path="/family"
-               element={
-                 <div>
-                   <Al3rapyFamilyUSA checkDarkMode={checkDarkMode} />
-                   <ContactUsUSA checkDarkMode={checkDarkMode} />
-                 </div>
-               }
-             />*/}
           </Routes>
-          {/* <FooterUSA checkDarkMode={checkDarkMode} />  */}
+          <Footer
+            checkDarkMode={checkDarkMode}
+            checkSaudiFlag={checkSaudiFlag}
+          />
         </Router>
       )}
     </div>

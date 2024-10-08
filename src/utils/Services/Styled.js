@@ -251,6 +251,16 @@ export const Card = styled.div`
       // color: transparent;
     }
 
+    h6 {
+      color: ${(props) => (props.checkDarkMode ? "#ebc481" : "#e5e5e5")};
+      backdrop-filter: ${(props) => (props.checkDarkMode ? "blur(3px)" : "blur(20px)")};
+      font-weight: 800;
+      font-family: "Open Sans", Tahoma, Arial, Helvetica;
+      margin: 10px;
+      width: fit-content;
+      font-family: "Open Sans", Tahoma, Arial, Helvetica;
+    }
+
     button {
       background: ${(props) =>
         props.checkDarkMode ? "#bf9752e0" : "#003641e4"};

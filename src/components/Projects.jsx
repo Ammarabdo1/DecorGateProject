@@ -22,7 +22,7 @@ const Projects = (props) => {
           <Typography variant='h1'> {props.checkSaudiFlag ? 'البعض من مشاريعنا' : "Some of our projects"} <AutoAwesomeIcon style={{fontSize:'3rem'}} className='icon'/> </Typography>
           <Typography variant='h4'> {props.checkSaudiFlag ? '  تصميم داخلي مميز مصمم خصيصا لتلبية احتياجاتكم وتفضيلاتكم الخاصة ' : "Distinctive interior design tailored to meet your specific needs and preferences."} </Typography>          
             </div>
-          <Link><Button variant='contained' data-aos='zoom-in' data-aos-duration='500'>{props.checkSaudiFlag ? 'المزيد' : "more"}</Button></Link>       
+          <Link to='projects' ><Button variant='contained' data-aos='zoom-in' data-aos-duration='500'>{props.checkSaudiFlag ? 'المزيد' : "more"}</Button></Link>       
           </div>
         </Grid>
 

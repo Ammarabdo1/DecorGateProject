@@ -5,6 +5,8 @@ import {
   P2Links,
   P3Media,
   P4Contact,
+  P5Copyright,
+  CopyrightText,
 } from "../utils/Footer/styled";
 
 import { AR, USA } from "../utils/Footer/translation";
@@ -29,7 +31,7 @@ const Footer = ({ checkDarkMode, checkSaudiFlag }) => {
     >
       <Grid container className="footer">
         <Grid md={12} sm={12} className="img-container">
-          <div className="img-main" data-aos="fade-up" data-aos-duration="2000">
+          <div className="img-main" data-aos="fade-down" data-aos-duration="2000">
             <div className="img" data-aos="zoom-out" data-aos-duration="2000">
               <img
                 src="images/Footer.png"
@@ -46,19 +48,19 @@ const Footer = ({ checkDarkMode, checkSaudiFlag }) => {
           md={3}
           sm={12}
           className="details"
-          data-aos="fade-up"
+          data-aos="zoom-out"
           data-aos-duration="1000"
         >
-          <P1Description checkDarkMode={checkDarkMode}>
+          <P1Description checkDarkMode={checkDarkMode} checkSaudiFlag={checkSaudiFlag} >
             <Typography variant="subtitle1">
-              <span>{checkSaudiFlag ? AR.des_title : USA.des_title}</span>,{" "}
+              <span className='header-description'>{checkSaudiFlag ? AR.des_title : USA.des_title}</span>,{" "}
               {checkSaudiFlag ? AR.des : USA.des},{" "}
-              {checkSaudiFlag ? AR.des2 : USA.des2}.
+              <span className='more-description' >{checkSaudiFlag ? AR.des2 : USA.des2}.</span>
             </Typography>
           </P1Description>
         </Grid>
 
-        <Grid md={3} sm={12} data-aos="fade-up" data-aos-duration="1000">
+        <Grid md={3} sm={12} data-aos="zoom-out" data-aos-duration="1000">
           <P2Links checkDarkMode={checkDarkMode}>
             <div className="pages">
               <Typography variant="h5">
@@ -80,7 +82,7 @@ const Footer = ({ checkDarkMode, checkSaudiFlag }) => {
                   - {checkSaudiFlag ? AR.links[2] : USA.links[2]}
                 </Typography>
               </Link>
-              <Link to="/know">
+              <Link to="/more">
                 <Typography className="page" variant="subtitle2">
                   - {checkSaudiFlag ? AR.links[3] : USA.links[3]}
                 </Typography>
@@ -99,7 +101,7 @@ const Footer = ({ checkDarkMode, checkSaudiFlag }) => {
           </P2Links>
         </Grid>
 
-        <Grid md={3} sm={12} data-aos="fade-up" data-aos-duration="1000">
+        <Grid md={3} sm={12} data-aos="zoom-out" data-aos-duration="1000">
           <P3Media checkDarkMode={checkDarkMode}>
             <div className="medias">
               <Typography variant="h5">
@@ -118,7 +120,7 @@ const Footer = ({ checkDarkMode, checkSaudiFlag }) => {
           </P3Media>
         </Grid>
 
-        <Grid md={3} sm={12} data-aos="fade-up" data-aos-duration="1000">
+        <Grid md={3} sm={12} data-aos="zoom-out" data-aos-duration="1000">
           <P4Contact checkDarkMode={checkDarkMode}>
             <div>
               <Typography variant="h5">
@@ -131,8 +133,12 @@ const Footer = ({ checkDarkMode, checkSaudiFlag }) => {
           </P4Contact>
         </Grid>
 
-        <Grid md={12} sm={12} style={{border:'1px solid'}} >
-          {checkSaudiFlag ? AR.copyright : USA.copyright}
+        <Grid md={12} sm={12} className='copyright-container'>
+          <P5Copyright checkDarkMode={checkDarkMode}>
+            <CopyrightText checkDarkMode={checkDarkMode}>
+              {checkSaudiFlag ? AR.copyright : USA.copyright}
+            </CopyrightText>
+          </P5Copyright>
         </Grid>
       </Grid>
     </FooterComponent>

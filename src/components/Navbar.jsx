@@ -76,7 +76,7 @@ const Navbar = (props) => {
               {/* //! About Link */}
               <li>
                 <Link
-                  to="/heros"
+                  to="/about"
                   onClick={() => props.setCheckClickLink("heros")}
                   exact
                   className={props.checkClickLink == "heros" ? "link1" : "link"}
@@ -86,7 +86,7 @@ const Navbar = (props) => {
               </li>
               <li>
                 <Link
-                  to="/family"
+                  to="/projects"
                   onClick={() => props.setCheckClickLink("family")}
                   exact
                   className={props.checkClickLink == "family" ? "link1" : "link"}
@@ -96,7 +96,7 @@ const Navbar = (props) => {
               </li>
               <li>
                 <Link
-                  to="/Championships"
+                  to="/more"
                   onClick={() => props.setCheckClickLink("championships")}
                   exact
                   className={
@@ -110,7 +110,7 @@ const Navbar = (props) => {
 
               <li>
                 <Link
-                  to="/heros"
+                  to="/services"
                   onClick={() => props.setCheckClickLink("AboutUs")}
                   exact
                   className={props.checkClickLink == "AboutUs" ? "link1" : "link"}
@@ -121,7 +121,7 @@ const Navbar = (props) => {
               </li>
               <li>
                 <Link
-                  to="/heros"
+                  to="/contact"
                   onClick={() => props.setCheckClickLink("Send")}
                   exact
                   className={props.checkClickLink == "Send" ? "link1" : "link"}

@@ -130,7 +130,7 @@ export default function TemporaryDrawer(props) {
           disablePadding
           style={{ borderBottom: "1px solid #eecd9567" }}
         >
-          <ListItemButton component={Link} to="/more">
+          <ListItemButton component={Link} to="/services">
             <ListItemIcon>
               <SpeedIcon style={{ color: "#E5E5E5" }} />
             </ListItemIcon>
