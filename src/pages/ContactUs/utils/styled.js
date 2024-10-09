@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import bgImg from "../Images/aboutBG.jpg";
+import bgImg from "../Images/contact.jpg";
+import bgImgM from "../Images/contact2.jpg";
 
 export const HeaderContainer = styled.div`
   position: relative;
@@ -60,6 +61,7 @@ export const HeaderElement = styled.div`
 
   @media (max-width: 1000px) {
     margin-top: 12vh;
+  background: url(${bgImgM}) no-repeat;
     background-size: cover;
     background-position: center;
 
@@ -82,7 +84,7 @@ export const HeaderElement = styled.div`
   }
 `;
 
-export const AboutContainer = styled.div`
+export const BodyComponent = styled.div`
   padding: 100px;
   background-image: radial-gradient(
     ${(props) =>
@@ -93,16 +95,24 @@ export const AboutContainer = styled.div`
 
   h2 {
     color: ${(props) => (props.checkDarkMode ? "#EECE95" : "#003641")};
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     font-family: "Open Sans", Tahoma, Arial, Helvetica;
+      width: fit-content;
+
+      display: flex;
+      align-items: end;
+      justify-content: center;
+
   }
 
-  .lamp-icon {
-    font-size: 2rem;
+  .contact-icon {
+    font-size: 3.5rem;
+    ${props => props.checkSaudiFlag ? 'margin-right: 5px' : 'margin-left: 5px'} ;
+    ${props => !props.checkSaudiFlag && 'transform: rotateY(180deg)'} ;
   }
 
   h6 {
-    color: ${(props) => (props.checkDarkMode ? "#e5e5e5" : "#585858")};
+    color: #585858;
     width: 80%;
     font-family: "Open Sans", Tahoma, Arial, Helvetica;
   }
@@ -136,75 +146,55 @@ export const AboutContainer = styled.div`
     }
   }
 
-  .wrapper {
-    z-index: 99;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    display: flex;
-    align-items: end;
-    justify-content: end;
+  .img-container {
+    border-radius: 25px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      transition: all 0.7s ease;
+    }
+  }
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(300px, 1fr));
-      grid-gap: 25px;
-      padding: 25px;
-      background: transparent !important;
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      cursor: pointer;
-      will-change: width, height;
-
-      .item {
-        width: 100%;
-        height: 100%;
-        border-radius: 5px;
-        will-change: transform, opacity;
+  &:hover {
+    .img-container {
+      img {
+        transform: scale(1.2);
       }
     }
   }
 
   @media (max-width: 1000px) {
-    min-height: ${props => props.checkSaudiFlag ? '150vh' : '130vh'};
+    min-height: 90vh;
     padding: 0px;
     width: 100%;
     margin: 0;
-
-    .container {
-      grid-template-columns: repeat(2, minmax(100px, 1fr)) !important;
-      grid-gap: 15px !important;
-      padding: 15px !important;
-
-      .item {
-        width: 100% !important;
-        height: 100% !important;
-      }
-        
-    }
-
     .text {
+      width: 100vw;
       margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     h2 {
+      width: 90vw;
       padding-bottom: 4px;
       text-align: center;
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 30px;
       box-shadow: 0 0 10px 1px;
       ${(props) =>
         !props.checkSaudiFlag &&
         `
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         margin-bottom: 20px;
         `}
+      margin-bottom: 50px;
     }
 
-    .lamp-icon {
-      font-size: 1.7rem;
+    .contact-icon {
+      font-size: 2.3rem;
     }
 
     h6 {
@@ -245,36 +235,107 @@ export const AboutContainer = styled.div`
       margin-left: 30px;
       `}
     }
+
+    .img-container {
+      margin: 50px auto 80px auto;
+      text-align: center;
+      width: 90%;
+    }
   }
 `;
 
-export const ItemsContainer = styled.div`
-  span {
-    display: ${(props) => props.open && "none"};
-    margin-bottom: 400px;
-    color: ${props => props.checkDarkMode ? '#e5e5e5' : ''};
-    position: absolute;
-    top: -100px;
-    font-size: 2rem;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 3px silver;
-    transition: all 0.3s ease;
-    &:hover {
-      box-shadow: 3px 3px gray;
-      border-right: 2px solid silver;
-      border-bottom: 2px solid silver;
-      outline: 1px solid #e5e5e5;
-      transform: translateY(-4px);
+export const ContactInfo = styled.div`
+  @keyframes jump {
+    0% {
+      transform: scale(1);
+    }
+
+    15% {
+      transform: scale(1);
+      color: #eece95;
+    }
+
+    30% {
+      transform: scale(1.2);
+      color: #eece95;
+    }
+
+    45% {
+      transform: scale(1.2);
+      color: #eece95;
+    }
+
+    60% {
+      transform: scale(1);
+    }
+
+    75% {
+      transform: scale(1);
+    }
+
+    90% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1);
     }
   }
 
-  @media (max-width: 1000px) {
-  span {
-    ${props => props.checkSaudiFlag ? 'top: 100px' : 'top: 40px'};
-    ${props => props.checkSaudiFlag ? 'left: 100px' : 'left: -150px'};
-    font-size: 1rem;
-    width: ${props => props.checkSaudiFlag ? '120px' : '122px' };
+  @keyframes color {
+    0% {
+    }
+
+    50% {
+      color: #eece95;
+    }
+
+    100% {
+    }
   }
+
+  background: #e5e5e526;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 50px;
+  margin-bottom: 25px;
+  transition: all 0.7s ease;
+  box-shadow: 0 0 5px 1px silver;
+  &:hover {
+    background: transparent;
+    transform: scale(1.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px 3px silver;
+  }
+
+  .info-icon {
+    color: ${(props) => (props.checkDarkMode ? "#e5e5e5" : "#585858")};
+    font-size: 2.3rem;
+    ${(props) => props.checkClickInfo && "animation: jump 1s ease-in-out 1"};
+    ${props => props.checkSaudiFlag && 'transform: rotateY(180deg)'} ;
+  }
+
+  h6 {
+    color: ${(props) => (props.checkDarkMode ? "#e5e5e5" : "#585858")};
+    ${(props) => props.checkClickInfo && "animation: color 1s ease-out 1"};
+  }
+
+  @media (max-width: 1000px) {
+    width: 250px;
+    margin-bottom: 30px;
+    .info-icon {
+      font-size: 1.5rem;
+      margin: ${props => props.checkSaudiFlag ? '0 5px 0 20px' : '0 20px 0 5px'} ;
+    }
+
+    h6 {
+      font-size: 0.7rem;
+      text-align: start;
+      height: 100%;
+      margin: auto;
+    }
   }
 `;

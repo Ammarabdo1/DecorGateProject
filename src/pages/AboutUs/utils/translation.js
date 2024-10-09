@@ -7,7 +7,7 @@ export const AR = {
   ST: "تصميم",
   ND: " تنفيذ ",
   RD: "إشراف ",
-  BTN: "مشاريعنا",
+  BTN: "انظر ايضا",
 };
 
 export const USA = {
@@ -23,5 +23,5 @@ export const USA = {
   ST: "Design",
   ND: "Implementation",
   RD: "Supervision",
-  BTN: "Projects",
+  BTN: "See also",
 };

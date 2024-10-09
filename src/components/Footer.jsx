@@ -11,7 +11,7 @@ import {
 
 import { AR, USA } from "../utils/Footer/translation";
 
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -24,6 +24,7 @@ import "aos/dist/aos.css";
 
 const Footer = ({ checkDarkMode, checkSaudiFlag }) => {
   AOS.init();
+  const isMobile = useMediaQuery('(max-width: 1000px)')
   return (
     <FooterComponent
       checkDarkMode={checkDarkMode}
@@ -120,7 +121,7 @@ const Footer = ({ checkDarkMode, checkSaudiFlag }) => {
           </P3Media>
         </Grid>
 
-        <Grid md={3} sm={12} data-aos="zoom-out" data-aos-duration="1000">
+        <Grid md={3} sm={12} data-aos={!isMobile && "zoom-out"} data-aos-duration="1000">
           <P4Contact checkDarkMode={checkDarkMode}>
             <div>
               <Typography variant="h5">

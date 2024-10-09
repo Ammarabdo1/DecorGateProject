@@ -245,7 +245,7 @@ const NavbarContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  background: #5858585f;
+  background: ${props => props.checkDarkMode ? '#00000058' : '#263b43d6'};
   backdrop-filter: blur(10px);
   position: fixed;
   top: 0;

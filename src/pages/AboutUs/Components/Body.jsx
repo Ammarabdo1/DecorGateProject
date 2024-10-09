@@ -45,30 +45,6 @@ const Body = (props) => {
           </Typography>
           <Typography variant="subtitle1">
             {props.checkSaudiFlag ? AR.DIS : USA.DIS}
-            <span>
-              {" "}
-              <p>{props.checkSaudiFlag ? AR.ST : USA.ST}</p>{" "}
-              {props.checkSaudiFlag ? (
-                <ArrowBackIcon
-                  style={{ color: props.checkDarkMode ? "#EECE95" : "#003641" }}
-                />
-              ) : (
-                <ArrowForwardIcon
-                  style={{ color: props.checkDarkMode ? "#EECE95" : "#003641" }}
-                />
-              )}{" "}
-              <p>{props.checkSaudiFlag ? AR.ND : USA.ND}</p>{" "}
-              {props.checkSaudiFlag ? (
-                <ArrowBackIcon
-                  style={{ color: props.checkDarkMode ? "#EECE95" : "#003641" }}
-                />
-              ) : (
-                <ArrowForwardIcon
-                  style={{ color: props.checkDarkMode ? "#EECE95" : "#003641" }}
-                />
-              )}{" "}
-              <p>{props.checkSaudiFlag ? AR.RD : USA.RD}</p>{" "}
-            </span>
           </Typography>
         </Grid>
 

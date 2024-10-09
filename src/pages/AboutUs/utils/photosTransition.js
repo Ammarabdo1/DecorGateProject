@@ -49,7 +49,7 @@ export default function Photos({ checkSaudiFlag, checkDarkMode }) {
 
   return (
     <>
-      <ItemsContainer open={open} className="wrapper">
+      <ItemsContainer open={open} className="wrapper" checkDarkMode={checkDarkMode} checkSaudiFlag={checkSaudiFlag} >
         <animated.div
           style={{ ...rest, width: size, height: size }}
           className="container"

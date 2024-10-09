@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import imgInternal from "../utils/Services/images/Internal.jpg";
 import imgOuter from "../utils/Services/images/out.jpg";
-import imgLandScap from "../utils/Services/images/park.jpg";
+import imgLandScap from "../utils/Services/images/park.jpeg";
 import imgArea from "../utils/Services/images/area.jpg";
 import imgFinish from "../utils/Services/images/finish.jpg";
 import imgBuild from "../utils/Services/images/build.jpg";

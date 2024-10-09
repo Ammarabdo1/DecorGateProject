@@ -31,7 +31,7 @@ export const ContactUsElement = styled.div`
   }
 
   @media (max-width: 1000px) {
-    min-height: 1200px;
+    min-height: 1050px;
   }
 `;
 
@@ -82,7 +82,7 @@ export const TextComponent = styled.div`
     }
   }
   @media (max-width: 1000px) {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     ${(props) =>
       props.checkSaudiFlag ? "margin-right: 300px" : "margin-left: 300px"};
 
@@ -135,7 +135,7 @@ export const FromComponent = styled.div`
       @keyframes freeRotate {
         0% {
           padding: 10px;
-          transform: rotate(35deg);
+          transform: rotate(40deg);
           width: 10px;
           height: 10px;
           box-shadow: 0 0 10px 3px
@@ -146,7 +146,7 @@ export const FromComponent = styled.div`
           border-radius: 50%;
           width: 10px;
           height: 10px;
-          transform: rotate(55deg);
+          transform: rotate(50deg);
           box-shadow: 0 0 10px 3px
             ${(props) => (props.checkDarkMode ? "#585858" : "#ebc481")};
         }
@@ -154,7 +154,7 @@ export const FromComponent = styled.div`
           padding: 10px;
           width: 10px;
           height: 10px;
-          transform: rotate(35deg);
+          transform: rotate(40deg);
           box-shadow: 0 0 10px 3px
             ${(props) => (props.checkDarkMode ? "#EECE95" : "#585858")};
         }
@@ -191,9 +191,9 @@ export const FromComponent = styled.div`
 
       ${(props) =>
         props.startPositionForm
-          ? `animation: middleTransition 2s ease-in-out 1 alternate;`
+          ? `animation: middleTransition 2s ease-in-out 1 ;`
           : props.selectField
-          ? `animation: onceRotate 2s ease-in-out 1 alternate`
+          ? `animation: onceRotate 1s ease-in-out 1 `
           : props.noneSelectField &&
             `animation: freeRotate 4s ease-in-out infinite alternate`};
 
@@ -204,6 +204,7 @@ export const FromComponent = styled.div`
       -webkit-backdrop-filter: blur(20px);
       backdrop-filter: blur(20px);
 
+        margin-top: 50px;
       .mainStackInForm {
         position: absolute;
         width: 600px;
@@ -232,7 +233,8 @@ export const FromComponent = styled.div`
 
         .submit {
           color: white;
-          background: ${props => props.checkDarkMode ? '#ebc481' : '#003641'}
+          background: ${(props) =>
+            props.checkDarkMode ? "#ebc481" : "#003641"}
         }
 
         .card {
@@ -260,7 +262,7 @@ export const FromComponent = styled.div`
         @keyframes freeRotate {
         0% {
           padding: 10px;
-          transform: rotate(25deg);
+          transform: rotate(5deg);
           width: 10px;
           height: 10px;
           box-shadow: 0 0 10px 3px
@@ -271,7 +273,7 @@ export const FromComponent = styled.div`
           border-radius: 50%;
           width: 10px;
           height: 10px;
-          transform: rotate(45deg);
+          transform: rotate(-5deg);
           box-shadow: 0 0 10px 3px
             ${(props) => (props.checkDarkMode ? "#585858" : "#ebc481")};
         }
@@ -279,7 +281,7 @@ export const FromComponent = styled.div`
           padding: 10px;
           width: 10px;
           height: 10px;
-          transform: rotate(25deg);
+          transform: rotate(5deg);
           box-shadow: 0 0 10px 3px
             ${(props) => (props.checkDarkMode ? "#EECE95" : "#585858")};
         }
@@ -297,17 +299,22 @@ export const FromComponent = styled.div`
           padding: 10px;
           width: 10px;
           height: 10px;
-          transform: rotate(35deg);
+          transform: rotate(10deg);
         }
       }
 
       @keyframes onceRotate {
         0% {
+        top: 25px;
+          left: -135px;
           width: 10px;
           height: 10px;
-          transform: rotate(45deg);
+          transform: rotate(0deg);
         }
         100% {
+        top: 0px;
+        left: 0px;
+          width: 10px;
           width: 290px;
         height: 420px;
           transform: rotate(0deg);
@@ -315,6 +322,12 @@ export const FromComponent = styled.div`
       }
 
         .mainStackInForm {
+          ${(props) =>
+            !props.selectField &&
+            `
+            top: 25px;
+          left: -135px;
+            `}
           width: 290px;
           height: 420px;
           .name-phone-fields {

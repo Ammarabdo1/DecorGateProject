@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import { ContactUsElement, ContactUsContainer } from "../utils/constact/styled";
 import ContactComponent from "../utils/constact/component";
 import { animated, useSpring, easings } from "@react-spring/web";
+import { useMediaQuery } from "@mui/material";
 
 export default function ContactUs({ checkDarkMode, checkSaudiFlag }) {
   const [selectField, setSelectField] = useState(false);
   const [noneSelectField, setNoneSelectField] = useState(true);
   const [startPositionForm, setStartPositionForm] = useState(false);
   const [onFocusField, setOnFocusField] = useState(false);
+
+  const isMobile = useMediaQuery('(max-width: 1000px)')
 
   const { value } = useSpring({
     from: {

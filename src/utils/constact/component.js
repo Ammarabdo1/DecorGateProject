@@ -28,7 +28,7 @@ import MessageIcon from "@mui/icons-material/Message";
 
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
-import EmailIcon from '@mui/icons-material/Email';
+import EmailIcon from "@mui/icons-material/Email";
 
 import { ClipLoader } from "react-spinners";
 import AOS from "aos";
@@ -233,7 +233,7 @@ const ContactComponent = ({
           <div
             className="FormValidate"
             style={{ direction: "ltr", textAlign: "right" }}
-            data-aos="fade-down-right"
+            data-aos={!isMobile && "fade-down-right"}
           >
             <form onSubmit={handelSubmit} className="form">
               <Stack
@@ -242,8 +242,9 @@ const ContactComponent = ({
                 className="mainStackInForm"
                 width={500}
               >
-                {/* first Name &PhoneNumber */}
+                {/* Full Name &PhoneNumber */}
                 <Stack className="name-phone-fields">
+                  {/* Full Name */}
                   <TextField
                     InputLabelProps={{
                       style: {
@@ -251,7 +252,13 @@ const ContactComponent = ({
                       },
                     }}
                     onFocus={() => setOnFocusField(true)}
-                    onBlur={() => setOnFocusField(false)}
+                    onBlur={(e) => {
+                      !name &&
+                        !phoneNumber &&
+                        !email &&
+                        !message &&
+                        setOnFocusField(false);
+                    }}
                     required
                     className="name-filed"
                     value={name}
@@ -316,7 +323,13 @@ const ContactComponent = ({
                       },
                     }}
                     onFocus={() => setOnFocusField(true)}
-                    onBlur={() => setOnFocusField(false)}
+                    onBlur={(e) => {
+                      !name &&
+                        !phoneNumber &&
+                        !email &&
+                        !message &&
+                        setOnFocusField(false);
+                    }}
                     required
                     value={phoneNumber}
                     type="text"
@@ -374,7 +387,13 @@ const ContactComponent = ({
                     },
                   }}
                   onFocus={() => setOnFocusField(true)}
-                  onBlur={() => setOnFocusField(false)}
+                  onBlur={(e) => {
+                    !name &&
+                      !phoneNumber &&
+                      !email &&
+                      !message &&
+                      setOnFocusField(false);
+                  }}
                   onClick={() => {
                     setStartPositionForm(false);
                     setNoneSelectField(false);
@@ -382,7 +401,10 @@ const ContactComponent = ({
                     setCheckFirstClickOnEmailButton(true);
                   }}
                   error={
-                    (!email.endsWith(".com") || !email.includes('@') || email.includes('@.com') || email.length < 9) &&
+                    (!email.endsWith(".com") ||
+                      !email.includes("@") ||
+                      email.includes("@.com") ||
+                      email.length < 9) &&
                     checkFirstClickOnEmailButton
                   }
                   variant="filled"
@@ -392,7 +414,10 @@ const ContactComponent = ({
                   required
                   onChange={(e) => setEmail(e.target.value)}
                   color={
-                    (!email.endsWith(".com") || !email.includes('@') || email.includes('@.com') || email.length < 9) &&
+                    (!email.endsWith(".com") ||
+                      !email.includes("@") ||
+                      email.includes("@.com") ||
+                      email.length < 9) &&
                     checkFirstClickOnEmailButton
                       ? "primary"
                       : "success"
@@ -400,11 +425,14 @@ const ContactComponent = ({
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
-                        {(!email.endsWith(".com") || !email.includes('@') || email.includes('@.com') || email.length < 9) &&
+                        {(!email.endsWith(".com") ||
+                          !email.includes("@") ||
+                          email.includes("@.com") ||
+                          email.length < 9) &&
                         checkFirstClickOnEmailButton ? (
                           <ErrorOutlineIcon style={{ color: "red" }} />
                         ) : (
-                          <EmailIcon style={{color: 'white'}} />
+                          <EmailIcon style={{ color: "white" }} />
                         )}
                       </InputAdornment>
                     ),
@@ -413,7 +441,10 @@ const ContactComponent = ({
                     },
                   }}
                   helperText={
-                    email.endsWith(".com") && email.includes('@') && !email.includes('@.com') && email.length >= 9 ? (
+                    email.endsWith(".com") &&
+                    email.includes("@") &&
+                    !email.includes("@.com") &&
+                    email.length >= 9 ? (
                       <div className="success">
                         <CheckIcon /> is valid
                       </div>
@@ -421,7 +452,9 @@ const ContactComponent = ({
                       <div style={{ color: checkDarkMode && "white" }}>
                         Required
                       </div>
-                    ) : email.endsWith(".com") && email.includes('@') && !email.includes('@.com') ? (
+                    ) : email.endsWith(".com") &&
+                      email.includes("@") &&
+                      !email.includes("@.com") ? (
                       <div className="flex">
                         must letters before_@Examle.com
                       </div>
@@ -438,7 +471,13 @@ const ContactComponent = ({
                     },
                   }}
                   onFocus={() => setOnFocusField(true)}
-                  onBlur={() => setOnFocusField(false)}
+                  onBlur={(e) => {
+                    !name &&
+                      !phoneNumber &&
+                      !email &&
+                      !message &&
+                      setOnFocusField(false);
+                  }}
                   required
                   value={message}
                   multiline
@@ -509,9 +548,12 @@ const ContactComponent = ({
                     email.includes("@.com") //! Email
                   }
                   onClick={() => {
-                    setStartPositionForm(false);
-                    setNoneSelectField(false);
-                    setSelectField(true);
+                    setTimeout(() => {
+                      setName("");
+                      setPhoneNumber("");
+                      setEmail("");
+                      setMessage("");
+                    }, 3000);
                   }}
                   className="submit"
                   variant="contained"
