@@ -49,7 +49,12 @@ export default function Photos({ checkSaudiFlag, checkDarkMode }) {
 
   return (
     <>
-      <ItemsContainer open={open} className="wrapper" checkDarkMode={checkDarkMode} checkSaudiFlag={checkSaudiFlag} >
+      <ItemsContainer
+        open={open}
+        className="wrapper"
+        checkDarkMode={checkDarkMode}
+        checkSaudiFlag={checkSaudiFlag}
+      >
         <animated.div
           style={{ ...rest, width: size, height: size }}
           className="container"
@@ -66,11 +71,15 @@ export default function Photos({ checkSaudiFlag, checkDarkMode }) {
               }}
             />
           ))}
-          <span>
-            {" "}
-            {checkSaudiFlag ? AR.BTN : USA.BTN}{" "}
-            <OpenWithIcon style={{ margin: "0 10px" }} />{" "}
-          </span>
+          <div className="show-images-button">
+            <div className="show-images-button-child">
+              <span>
+                {" "}
+                {checkSaudiFlag ? AR.BTN : USA.BTN}{" "}
+                <OpenWithIcon style={{ margin: "0 10px" }} />{" "}
+              </span>
+            </div>
+          </div>
         </animated.div>
       </ItemsContainer>
     </>

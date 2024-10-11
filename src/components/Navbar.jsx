@@ -94,7 +94,7 @@ const Navbar = (props) => {
                   {props.checkSaudiFlag ? 'البعض من مشاريعنا' : 'Some of our projects'} 
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to="/more"
                   onClick={() => props.setCheckClickLink("championships")}
@@ -106,7 +106,7 @@ const Navbar = (props) => {
                   {" "}
                   {props.checkSaudiFlag ? 'اعرف اكثر' : 'Know More'} 
                 </Link>
-              </li>
+              </li> */}
 
               <li>
                 <Link

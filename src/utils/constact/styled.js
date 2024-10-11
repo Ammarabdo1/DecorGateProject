@@ -299,7 +299,7 @@ export const FromComponent = styled.div`
           padding: 10px;
           width: 10px;
           height: 10px;
-          transform: rotate(10deg);
+          transform: rotate(5deg);
         }
       }
 

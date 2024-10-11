@@ -82,7 +82,7 @@ const Body = ({ checkDarkMode, checkSaudiFlag }) => {
 
         <Grid md={5} sm={12} data-aos="fade-up" data-aos-duration="1000">
           <div className="img-container">
-            <img src="images/7)Implementation/Implementation1-2.jpeg" alt="company" />
+            <img src="images/look/look1.jpg" alt="company" />
           </div>
         </Grid>
       </Grid>

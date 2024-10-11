@@ -168,7 +168,7 @@ export const AboutContainer = styled.div`
   }
 
   @media (max-width: 1000px) {
-    min-height: ${props => props.checkSaudiFlag ? '150vh' : '130vh'};
+    min-height: ${(props) => (props.checkSaudiFlag ? "150vh" : "130vh")};
     padding: 0px;
     width: 100%;
     margin: 0;
@@ -182,7 +182,6 @@ export const AboutContainer = styled.div`
         width: 100% !important;
         height: 100% !important;
       }
-        
     }
 
     .text {
@@ -249,32 +248,50 @@ export const AboutContainer = styled.div`
 `;
 
 export const ItemsContainer = styled.div`
-  span {
-    display: ${(props) => props.open && "none"};
-    margin-bottom: 400px;
-    color: ${props => props.checkDarkMode ? '#e5e5e5' : ''};
+  .show-images-button {
     position: absolute;
     top: -100px;
-    font-size: 2rem;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 3px silver;
-    transition: all 0.3s ease;
-    &:hover {
-      box-shadow: 3px 3px gray;
-      border-right: 2px solid silver;
-      border-bottom: 2px solid silver;
-      outline: 1px solid #e5e5e5;
-      transform: translateY(-4px);
+    span {
+      display: ${(props) => props.open && "none"};
+      margin-bottom: 400px;
+      color: ${(props) => (props.checkDarkMode ? "#e5e5e5" : "")};
+      font-size: 2rem;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px 3px silver;
+      transition: all 0.3s ease;
+      &:hover {
+        box-shadow: 3px 3px gray;
+        border-right: 2px solid silver;
+        border-bottom: 2px solid silver;
+        outline: 1px solid #e5e5e5;
+        transform: translateY(-4px);
+      }
     }
   }
 
   @media (max-width: 1000px) {
-  span {
-    ${props => props.checkSaudiFlag ? 'top: 100px' : 'top: 40px'};
-    ${props => props.checkSaudiFlag ? 'left: 100px' : 'left: -150px'};
-    font-size: 1rem;
-    width: ${props => props.checkSaudiFlag ? '120px' : '122px' };
-  }
+    .show-images-button {
+      position: absolute;
+      width: 100vw;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      .show-images-button-child {
+        position: relative;
+        width: 100vw;
+        height: 100%;
+
+        span {
+          position: absolute;
+          ${(props) => (props.checkSaudiFlag ? "top: 50%" : "top: 50%")};
+          transform: translate(-50%, -50%);
+          ${(props) => (props.checkSaudiFlag ? "left: 50%" : "left: -30%")};
+          font-size: 1rem;
+          width: ${(props) => (props.checkSaudiFlag ? "120px" : "122px")};
+        }
+      }
+    }
   }
 `;

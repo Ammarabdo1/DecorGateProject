@@ -83,11 +83,6 @@ const Footer = ({ checkDarkMode, checkSaudiFlag }) => {
                   - {checkSaudiFlag ? AR.links[2] : USA.links[2]}
                 </Typography>
               </Link>
-              <Link to="/more">
-                <Typography className="page" variant="subtitle2">
-                  - {checkSaudiFlag ? AR.links[3] : USA.links[3]}
-                </Typography>
-              </Link>
               <Link to="/services">
                 <Typography className="page" variant="subtitle2">
                   - {checkSaudiFlag ? AR.links[4] : USA.links[4]}

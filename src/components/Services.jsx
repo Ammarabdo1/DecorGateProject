@@ -107,7 +107,7 @@ const Services = (props) => {
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.area : USA.area }</Typography>{" "}
               <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.area_des : USA.area_des }</Typography>
-              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
+              <Link to='services?service=area' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -133,7 +133,7 @@ const Services = (props) => {
             <div className="back">
               <Typography variant="h5">{props.checkSaudiFlag ? AR.outer : USA.outer }</Typography>
               <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.outer_des : USA.outer_des }</Typography>
-              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
+              <Link to='services?service=outer' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -159,7 +159,7 @@ const Services = (props) => {
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.park : USA.park }</Typography>
               <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.park_des : USA.park_des }</Typography>
-              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
+              <Link to='services?service=landscape' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -185,7 +185,7 @@ const Services = (props) => {
             <div className="back">
               <Typography variant="h5">{props.checkSaudiFlag ? AR.internal : USA.internal } </Typography>
               <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.internal_des : USA.internal_des }</Typography>
-              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
+              <Link to='services?service=internal' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -211,7 +211,7 @@ const Services = (props) => {
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.finish : USA.finish } </Typography>{" "}
               <Typography variant="subtitle2">{props.checkSaudiFlag ? AR.finish_des : USA.finish_des }</Typography>
-              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
+              <Link to='services?service=finish' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -236,7 +236,7 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.build : USA.build }</Typography>{" "}
-              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
+              <Link to='services?service=build' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>
@@ -261,7 +261,7 @@ const Services = (props) => {
             </div>
             <div className="back">
               <Typography variant="h5"> {props.checkSaudiFlag ? AR.look : USA.look }</Typography>{" "}
-              <Link to='services' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
+              <Link to='services?service=look' ><Button variant="contained">{props.checkSaudiFlag ? AR.btn : USA.btn }</Button></Link>
             </div>
           </Card>
         </Grid>

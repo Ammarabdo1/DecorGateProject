@@ -111,7 +111,7 @@ export default function TemporaryDrawer(props) {
         </ListItem>
 
         {/* more */}
-        <ListItem
+        {/* <ListItem
           disablePadding
           style={{ borderBottom: "1px solid #eecd9567" }}
         >
@@ -123,7 +123,7 @@ export default function TemporaryDrawer(props) {
               primary={props.checkSaudiFlag ? "اعرف اكثر" : "Know More"}
             />
           </ListItemButton>
-        </ListItem>
+        </ListItem> */}
 
         {/* services */}
         <ListItem

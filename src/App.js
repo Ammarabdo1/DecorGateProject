@@ -10,6 +10,8 @@ import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import Contact from "./pages/ContactUs/ContactUs";
+import Services from "./pages/Services/ServicesPage";
+import Projects from "./pages/Projects/Projects";
 
 function App() {
   //TODO>> make a style to home at start up the code
@@ -63,12 +65,10 @@ function App() {
                 </div>
               }
             />
-
             <Route
               path="/*"
               element={<NotFound setCheckClickLink={setCheckClickLink} />}
             />
-
             <Route
               path="/about"
               element={
@@ -84,12 +84,42 @@ function App() {
                 </div>
               }
             />
-
             <Route
               path="/contact"
               element={
                 <div>
                   <Contact
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                  <ContactUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                </div>
+              }
+            />
+            <Route
+              path="/services"
+              element={
+                <div>
+                  <Services
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                  <ContactUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                </div>
+              }
+            />
+
+            <Route
+              path="/projects"
+              element={
+                <div>
+                  <Projects
                     checkDarkMode={checkDarkMode}
                     checkSaudiFlag={checkSaudiFlag}
                   />
@@ -156,6 +186,38 @@ function App() {
               element={
                 <div>
                   <Contact
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                  <ContactUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                </div>
+              }
+            />
+
+            <Route
+              path="/services"
+              element={
+                <div>
+                  <Services
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                  <ContactUs
+                    checkDarkMode={checkDarkMode}
+                    checkSaudiFlag={checkSaudiFlag}
+                  />
+                </div>
+              }
+            />
+
+            <Route
+              path="/projects"
+              element={
+                <div>
+                  <Projects
                     checkDarkMode={checkDarkMode}
                     checkSaudiFlag={checkSaudiFlag}
                   />

@@ -26,7 +26,6 @@ export default function ContactUs({ checkDarkMode, checkSaudiFlag }) {
   });
 
   const handleChangeMotionOfFrom = () => {
-    console.log(selectField);
     if (selectField && !onFocusField) {
       setStartPositionForm(true);
       setSelectField(false);
@@ -35,7 +34,6 @@ export default function ContactUs({ checkDarkMode, checkSaudiFlag }) {
         setNoneSelectField(true);
       }, 2000);
     } else {
-      console.log("not");
     }
   };
 
