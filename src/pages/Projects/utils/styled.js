@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import bgImg from "../Images/ProjectsBg.jpg";
 
+import middleDBg from "../Images/bgD.jpg";
+import middleLBg from "../Images/bgL.jpg";
+
 export const HeaderContainer = styled.div`
   position: relative;
   overflow: hidden;
@@ -59,7 +62,6 @@ export const HeaderElement = styled.div`
   }
 
   @media (max-width: 1000px) {
-    margin-top: 12vh;
     background-size: cover;
     background-position: center;
 
@@ -85,8 +87,11 @@ export const HeaderElement = styled.div`
 export const ProjectsComponent = styled.div`
   .all-projects {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100vh !important;
     background: ${(props) => (props.checkDarkMode ? "#253237" : "#5858585f")};
+  }
+
+  @media (max-width: 1000px) {
   }
 `;
 
@@ -119,7 +124,6 @@ export const TextContainer = styled.div`
     margin: 0;
 
     .text {
-      margin-top: 350px;
       padding: 0;
     }
 
@@ -167,16 +171,153 @@ export const BackGroundColorContainer = styled.div`
   }
 `;
 
-export const BottomProjects = styled.div`
-  .bottom-images {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        pointer-events: none;
-
+export const TopImages = styled.div`
+  .images-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    // pointer-events: none;
   }
 
   img {
-    width: 25%;
+    width: 18%;
+  }
+
+  @media (max-width: 1000px) {
+    .images-container {
+      z-index: 10;
+    }
+
+    img {
+      width: 48%;
+    }
+  }
+`;
+
+export const MiddleImages = styled.div`
+  //TODO>> right
+  .right {
+    pointer-events: none;
+    filter: brightness(1.2);
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 15%;
+      margin-bottom: 5px;
+      ${(props) => !props.checkSaudiFlag && "margin-left: 85%;"}
+    }
+
+    @media (max-width: 1000px) {
+      img {
+        width: 20%;
+        ${(props) => !props.checkSaudiFlag && "margin-left: 80%;"}
+      }
+    }
+  }
+
+  //TODO>> top
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 50%;
+      border-radius: 10%;
+    }
+  }
+
+  //TODO>> middle
+  .middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    img {
+      width: 50%;
+      border-radius: 10%;
+    }
+  }
+
+  //TODO>> bottom
+
+    //* middle
+    .middle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+
+      .hover-img {
+        position: relative;
+        width: 60%;
+
+        .main-img {
+          width: 100%;
+        }
+
+        .absolute-img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          opacity: 0.4;
+        }
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .middle {
+
+        .hover-img {
+          width: 90%;
+
+          .main-img {
+            width: 100%;
+          }
+
+          .absolute-img {
+            opacity: 0.3;
+          }
+        }
+      }
+    }
+  }
+
+  //TODO>> left
+  .left {
+    pointer-events: none;
+    filter: brightness(1.2);
+    img {
+      width: 15%;
+      margin-right: 85%;
+      margin-bottom: 2px;
+    }
+
+    @media (max-width: 1000px) {
+      img {
+        width: 20%;
+        margin-right: 80%;
+      }
+    }
+  }
+`;
+
+export const BottomImages = styled.div`
+  .bottom-images {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  img {
+    width: 18%;
+  }
+
+  @media (max-width: 1000px) {
+    img {
+    width: 48%;
+    }
   }
 `;

@@ -2,7 +2,7 @@ export const AR = {
     header: 'خدماتنا',
 
     park: 'لاند سكيب وتنسيق حدائق',
-    park_des: 'إن مزيج خضرة النباتات مع ألوان الزهور يمنح أثرا نفسيا رائعا، يبعث على السرور والسعادة والراحة النفسية والهدوء، ويخفف عن المواطنين مشكلاتهم الحياتية وهمومهم مما يساعدهم على تجديد النشاط والحيوية، وزيادة القدرة على العطاء والإنتاج. نظرا لذلك اولينا اهتماماً خاص بخدمه تنسيق الحدائق تحت إشراف هندسي إحترافي ومتميز',
+    park_des: 'إن مزيج خضرة النباتات مع ألوان الزهور يريح المواطن من مشاكله وهمومه الحياتية مما يساعده على تجديد نشاطه وحيويته وزيادة قدرته على العطاء والإنتاج ولذلك أولينا اهتماما خاصا بخدمة تنسيق الحدائق بإشراف مهندس محترف ومتميز',
 
     outer: 'التصاميم الخارجيه',
     outer_des: 'يحدد التصميم الخارجي مدى انسجام المبنى من الداخل والخارج ومع الجوار المحيط، بالإضافة إلى تأثيره إيجابًا على وظائف المبنى، من خلال التخطيط الجيد للتصميم الخارجي وإنشاء مساحات خارجية عمليّة وجميلة',
@@ -31,7 +31,7 @@ export const AR = {
 export const USA = {
     header: 'Services',
     park: 'Landscape and garden',
-    park_des: 'The combination of green plants with the colors of flowers gives a wonderful psychological effect, which inspires pleasure, happiness, psychological comfort and calm, and relieves citizens of their life problems and worries, which helps them to renew their activity and vitality, and increase their ability to give and produce. Therefore, we have paid special attention to the garden coordination service under the supervision of a professional and distinguished engineer',
+    park_des: 'The combination of green plants with the colors of flowers relieves the citizen from his problems and life worries, which helps him to renew his activity and vitality and increase his ability to give and produce. Therefore, we have paid special attention to the garden coordination service under the supervision of a professional and distinguished engineer.',
 
     outer: 'Exterior designs',
     outer_des: 'The exterior design determines the extent to which the building harmonizes with the interior and exterior and with the surrounding neighborhood, in addition to its positive impact on the functions of the building, through good planning of the exterior design and the creation of practical and beautiful outdoor spaces',

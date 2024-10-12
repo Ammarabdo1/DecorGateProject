@@ -7,14 +7,20 @@ import TemporaryDrawer from "../utils/Navbar/ResposiveNavbar";
 import { Box, Stack, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
+//! mui icons 
+import NightlightRoundIcon from '@mui/icons-material/NightlightRound';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import { MdDarkMode } from "react-icons/md";
 //! mode color
 import SwitchModeColor from "../utils/Navbar/MaterialUISwitch";
 
 //! whats app Icon
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
+import AOS from "aos";
+import 'aos/dist/aos.css'
 const Navbar = (props) => {
-
+  AOS.init();
   //TODO>> check scroll
   const [checkScroll, setCheckScroll] = useState(false);
 
@@ -151,10 +157,8 @@ const Navbar = (props) => {
 
               <li>
                 {/*//! switch mode color  */}
-                <SwitchModeColor
-                  checkDarkMode={props.checkDarkMode}
-                  setCheckDarkMode={props.setCheckDarkMode}
-                />
+                {props.checkDarkMode && <Button data-aos='zoom-in' onClick={()=> props.setCheckDarkMode(false)}><MdDarkMode style={{color:'#2b4148', fontSize:'2rem'}} /></Button>}
+                {!props.checkDarkMode && <Button data-aos='zoom-in' onClick={()=> props.setCheckDarkMode(true)}><LightModeIcon style={{color:'#EECE95', fontSize:'2rem'}} /></Button>}
               </li>
 
               {/*//! Language change Button  */}

@@ -19,9 +19,9 @@ import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import InfoIcon from "@mui/icons-material/Info";
-import MoreTimeIcon from "@mui/icons-material/MoreTime";
+// import MoreTimeIcon from "@mui/icons-material/MoreTime";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
-import SpeedIcon from '@mui/icons-material/Speed';
+import SpeedIcon from "@mui/icons-material/Speed";
 
 // Media icons
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -29,6 +29,10 @@ import { FaFacebook } from "react-icons/fa";
 // list Icon
 import ReorderIcon from "@mui/icons-material/Reorder";
 import ClearAllIcon from "@mui/icons-material/ClearAll";
+
+// mode color Icons
+import LightModeIcon from '@mui/icons-material/LightMode';
+import { MdDarkMode } from "react-icons/md";
 
 //! react-router
 import { Link } from "react-router-dom";
@@ -156,8 +160,11 @@ export default function TemporaryDrawer(props) {
   );
 
   return (
-    <div >
-      <NavbarContainer checkDarkMode={props.checkDarkMode}  style={{width:'100%', overflow:'hidden', }}>
+    <div>
+      <NavbarContainer
+        checkDarkMode={props.checkDarkMode}
+        style={{ width: "100%", overflow: "hidden" }}
+      >
         <img
           className="navbar-img"
           src="images/icons/NavbarLogo.png"
@@ -182,10 +189,22 @@ export default function TemporaryDrawer(props) {
             />
           </Button>
 
-          <SwitchModeColor
-            checkDarkMode={props.checkDarkMode}
-            setCheckDarkMode={props.setCheckDarkMode}
-          />
+          {props.checkDarkMode && (
+            <Button
+              data-aos="zoom-in"
+              onClick={() => props.setCheckDarkMode(false)}
+            >
+              <MdDarkMode style={{ color: "#2b4148", fontSize: "2rem" }} />
+            </Button>
+          )}
+          {!props.checkDarkMode && (
+            <Button
+              data-aos="zoom-in"
+              onClick={() => props.setCheckDarkMode(true)}
+            >
+              <LightModeIcon style={{ color: "#EECE95", fontSize: "2rem" }} />
+            </Button>
+          )}
         </div>
 
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -208,34 +227,36 @@ export default function TemporaryDrawer(props) {
         </div>
 
         <Drawer
-        anchor={props.checkSaudiFlag ? "right" : "left"}
-        open={open}
-        onClose={toggleDrawer(false)}
-        style={{ direction: props.checkSaudiFlag && "rtl", width:'100px', }}
-      >
-        {DrawerList}
-        <WhatsContainer>
-          <Link target="_blank" to="https://wa.me/+201112644891">
-            <WhatsAppIcon className="whats-icon" />
-          </Link>
-          <Link
-            target="_blank"
-            to="https://www.facebook.com/people/Decor-Gate/61565983628977/?mibextid=qi2Omg&rdid=6YlbHMdOiKox9LKj&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1222LzdtXPGTAdM5%2F%3Fmibextid%3Dqi2Omg"
-          >
-            <FaFacebook className="face-icon" />
-          </Link>
-          <Link
-            target="_blank"
-            to="https://www.instagram.com/decorgate1?igsh=MW4xMnlqdm9rdmNxeA=="
-          >
-            <img src="images/icons/instagram.ico" className="instagram-icon" />
-          </Link>
-        </WhatsContainer>
-      </Drawer>
+          anchor={props.checkSaudiFlag ? "right" : "left"}
+          open={open}
+          onClose={toggleDrawer(false)}
+          style={{ direction: props.checkSaudiFlag && "rtl", width: "100px" }}
+        >
+          {DrawerList}
+          <WhatsContainer>
+            <Link target="_blank" to="https://wa.me/+201112644891">
+              <WhatsAppIcon className="whats-icon" />
+            </Link>
+            <Link
+              target="_blank"
+              to="https://www.facebook.com/people/Decor-Gate/61565983628977/?mibextid=qi2Omg&rdid=6YlbHMdOiKox9LKj&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1222LzdtXPGTAdM5%2F%3Fmibextid%3Dqi2Omg"
+            >
+              <FaFacebook className="face-icon" />
+            </Link>
+            <Link
+              target="_blank"
+              to="https://www.instagram.com/decorgate1?igsh=MW4xMnlqdm9rdmNxeA=="
+            >
+              <img
+                src="images/icons/instagram.ico"
+                className="instagram-icon"
+              />
+            </Link>
+          </WhatsContainer>
+        </Drawer>
       </NavbarContainer>
 
       {/* //TODO>> list links */}
-      
     </div>
   );
 }
@@ -245,13 +266,14 @@ const NavbarContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  background: ${props => props.checkDarkMode ? '#00000058' : '#263b43d6'};
+  background: ${(props) => (props.checkDarkMode ? "#585858" : "#263b43d6")};
   backdrop-filter: blur(10px);
-  position: fixed;
+  position: relative;
   top: 0;
   z-index: 1000;
   min-height: 12vh;
-  box-shadow: 0px 0px 18px 7px ${props => props.checkDarkMode ? '#E5E5E5' : '#000000de'};
+  box-shadow: 0px 0px 18px 7px
+    ${(props) => (props.checkDarkMode ? "#E5E5E5" : "#000000de")};
 
   padding-right: 20px;
 
@@ -262,7 +284,6 @@ const NavbarContainer = styled.div`
     outline: 1px solid white;
     transition: all 1s ease;
   }
-
 `;
 
 const WhatsContainer = styled.div`
@@ -278,9 +299,9 @@ const WhatsContainer = styled.div`
     bottom: 20px;
     left: 20px;
     &:hover {
-        transform: rotateY(180deg) scale(1.2);
-        box-shadow: 0 0 8px 2px ; 
-        border-radius: 50%;
+      transform: rotateY(180deg) scale(1.2);
+      box-shadow: 0 0 8px 2px;
+      border-radius: 50%;
     }
   }
 
@@ -296,9 +317,9 @@ const WhatsContainer = styled.div`
     bottom: 20px;
     left: 40%;
     &:hover {
-        transform: rotateY(180deg) scale(1.2);
-        box-shadow: 0 0 8px 2px ; 
-        border-radius: 50%;
+      transform: rotateY(180deg) scale(1.2);
+      box-shadow: 0 0 8px 2px;
+      border-radius: 50%;
     }
   }
 
@@ -315,9 +336,9 @@ const WhatsContainer = styled.div`
     right: 20px;
     width: 43px;
     &:hover {
-        transform: rotateY(180deg) scale(1.2);
-        box-shadow: 0 0 8px 2px ; 
-        border-radius: 50%;
+      transform: rotateY(180deg) scale(1.2);
+      box-shadow: 0 0 8px 2px;
+      border-radius: 50%;
     }
   }
 `;

@@ -74,7 +74,6 @@ export const ElementHeader = styled.div`
   }
 
   @media (max-width: 1000px) {
-    margin-top: 12vh;
     height: 88vh;
     background: url(${bgImgM});
     background-size: cover;

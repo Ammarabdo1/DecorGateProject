@@ -13,7 +13,7 @@ const SwitchModeColor = (props) => {
             setTimeout(() => {
               props.setCheckDarkMode(!props.checkDarkMode);
               e.target.disabled = false;
-            }, 200);
+            }, 200); 
           }}
         />
       }

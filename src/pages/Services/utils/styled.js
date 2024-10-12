@@ -31,7 +31,7 @@ export const HeaderElement = styled.div`
   background-position: right 0px bottom -100px;
   z-index: 2;
   position: relative;
-
+  
   header {
     height: 100%;
     display: flex;
@@ -76,11 +76,11 @@ export const HeaderElement = styled.div`
   }
 
   @media (max-width: 1000px) {
-    margin-top: 12vh;
+  height: 60vh;
     background: url(${(props) => bgImgs[props.serviceType] || mainImg})
       no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: start;
     ${(props) =>
       (!props.serviceType ||
         props.serviceType === "look" ||

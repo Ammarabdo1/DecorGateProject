@@ -59,7 +59,6 @@ export const HeaderElement = styled.div`
   }
 
   @media (max-width: 1000px) {
-    margin-top: 12vh;
     background-size: cover;
     background-position: center;
 

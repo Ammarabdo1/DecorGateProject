@@ -12,17 +12,39 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import Contact from "./pages/ContactUs/ContactUs";
 import Services from "./pages/Services/ServicesPage";
 import Projects from "./pages/Projects/Projects";
+import FixedBottomIcons from "./Views/FixedBottomIcons";
+
+import { useMediaQuery } from "@mui/material";
 
 function App() {
   //TODO>> make a style to home at start up the code
   const [checkClickLink, setCheckClickLink] = useState("Home");
+
   //TODO>> Toggle color of page
-  const [checkDarkMode, setCheckDarkMode] = useState(true);
-  //TODO>> check saudi flag
-  const [checkSaudiFlag, setCheckSaudiFlag] = useState(true);
+  const [checkDarkMode, setCheckDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('colormode');
+    return savedMode === 'true'; // Convert string to boolean
+  });
+
+  //TODO>> Toggle language of page
+  // Initialize checkSaudiFlag with a boolean value based on localStorage
+  const [checkSaudiFlag, setCheckSaudiFlag] = useState(() => {
+    const savedLanguage = localStorage.getItem('language');
+    return savedLanguage === 'true'; // Convert string to boolean
+  });
 
   //TODO>> check loader
   const [loader, setLoader] = useState(true);
+
+  const isMobile = useMediaQuery('(max-width: 1000px)')
+
+  useEffect(() => {
+    localStorage.setItem("colormode", checkDarkMode)
+  } ,[checkDarkMode])
+
+  useEffect(() => {
+    localStorage.setItem('language', checkSaudiFlag)
+  } ,[checkSaudiFlag])
 
   useEffect(() => {
     setTimeout(() => setLoader(false), 4000);
@@ -47,6 +69,8 @@ function App() {
             checkClickLink={checkClickLink}
             setCheckClickLink={setCheckClickLink}
           />
+
+          {isMobile && <FixedBottomIcons checkSaudiFlag={checkSaudiFlag} />}
 
           <Routes>
             <Route
@@ -147,6 +171,7 @@ function App() {
             checkClickLink={checkClickLink}
             setCheckClickLink={setCheckClickLink}
           />
+          {isMobile && <FixedBottomIcons checkSaudiFlag={checkSaudiFlag} />}
           <Routes>
             <Route
               path="/"

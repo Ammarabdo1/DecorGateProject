@@ -258,12 +258,22 @@ export const Card = styled.div`
       font-family: "Open Sans", Tahoma, Arial, Helvetica;
       margin: 10px;
       width: fit-content;
-      font-family: "Open Sans", Tahoma, Arial, Helvetica;
     }
 
     button {
       background: ${(props) =>
         props.checkDarkMode ? "#bf9752e0" : "#003641e4"};
+    }
+
+    @media (max-width: 1000px) {
+
+      h5 {
+        font-size: 1.4rem;
+      }
+
+      h6 {
+        font-size: ${props => props.checkSaudiFlag ? '.7rem' : '.6rem'} ;
+      }
     }
   }
 `;
