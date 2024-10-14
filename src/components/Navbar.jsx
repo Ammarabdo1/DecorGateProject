@@ -60,9 +60,8 @@ const Navbar = (props) => {
             <li>
               <img
                 className="navbar-img"
-                src="images/icons/NavbarLogo.png"
+                src="images/icons/Logo.png"
                 alt="Logo"
-                style={{ borderRadius: "50%" }}
               />
             </li>
             <Stack direction="row" spacing={4}>

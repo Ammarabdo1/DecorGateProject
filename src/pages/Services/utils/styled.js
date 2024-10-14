@@ -28,7 +28,7 @@ export const HeaderElement = styled.div`
   height: 50vh;
   background: url(${(props) => bgImgs[props.serviceType] || mainImg}) no-repeat;
   background-size: cover;
-  background-position: right 0px bottom -100px;
+  background-position: right 0px top  ${(props) => props.serviceType === 'outer' || props.serviceType === 'internal' ? '-300px' : '-500px'};
   z-index: 2;
   position: relative;
   

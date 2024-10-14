@@ -484,7 +484,7 @@ const ContactComponent = ({
                   // maxRows={3}
                   minRows={isMobile ? 2 : 5}
                   variant="standard"
-                  label="Massage"
+                  label="Message"
                   variant="outlined"
                   InputProps={{
                     endAdornment: (

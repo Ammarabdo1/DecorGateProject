@@ -9,6 +9,8 @@ import bgImg2 from "../utils/ViewHeader/images/H3.jpg";
 import bgImg3 from "../utils/ViewHeader/images/H4.jpeg";
 import bgImg4 from "../utils/ViewHeader/images/H5.jpeg";
 
+import {AR, USA} from '../utils/ViewHeader/translation'
+
 import mobileBgImg from "../utils/ViewHeader/images/M2.jpg";
 import mBgImg2 from "../utils/ViewHeader/images/M3.jpg";
 import mBgImg3 from "../utils/ViewHeader/images/M4.jpg";
@@ -72,10 +74,10 @@ const ViewHeader = ({checkDarkMode, checkSaudiFlag}) => {
       <ElementHeader checkDarkMode={checkDarkMode} checkSaudiFlag={checkSaudiFlag} >
         <header>
           <Typography variant="h2">
-            {checkSaudiFlag ? "بوابة الديكور" : "Decor Gate"}
+            {checkSaudiFlag ? AR.header: USA.header}
           </Typography>
           <Typography variant="h3">
-            {checkSaudiFlag ? "عالم من الفن" : "A world of art"}
+          {checkSaudiFlag ? AR.title: USA.title}
           </Typography>
         </header>
         

@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 //! aos scroll animation
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ColorPicker from "./Color";
 
 const About = (props) => {
   useEffect(() => {
